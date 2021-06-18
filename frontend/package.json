@@ -1,0 +1,18 @@
+{
+  "name": "engage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "electron": "electron .",
+    "lint": "standard --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^13.1.2"
+  },
+  "devDependencies": {
+    "standard": "^16.0.3"
+  }
+}
