@@ -2,7 +2,7 @@ const sequelize = require('sequelize')
 const db = require('../database/connection')
 
 const schema = {
-  teamId: {
+  meetingId: {
     type: sequelize.UUID,
     primaryKey: true
   },

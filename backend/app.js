@@ -5,11 +5,13 @@ const morgan = require('./logging/morgan')
 const logger = require('./logging/logger')
 const db = require('./database/connection')
 const users = require('./routes/users')
+const teams = require('./routes/teams')
 const routes = require('./routes')
 
 const app = express()
 
 const { migrations } = require('./models/migrations')
+
 migrations()
   .then(() => { logger.info('Migrations made') })
   .catch(err => {
@@ -38,5 +40,6 @@ app.use(morgan)
 // Mount routes
 app.use('/', routes)
 app.use('/api/v1/user', users)
+app.use('/api/v1/team', teams)
 
 module.exports = app

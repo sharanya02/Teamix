@@ -24,5 +24,5 @@ const schema = {
 const options = {
   timestamps: true
 }
-const User = db.define('User', schema, options)
+const User = db.define('Users', schema, options)
 module.exports = User

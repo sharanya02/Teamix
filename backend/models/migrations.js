@@ -3,16 +3,17 @@ exports.migrations = async () => {
     const User = require('./users')
     const Team = require('./teams')
     const Post = require('./posts')
+    const UserTeams = require('./userTeam')
 
-    User.hasMany(Team, { foreignKey: 'userId' });
-    Team.hasMany(User, { foreignKey: 'teamId' });
-    User.hasMany(Post, { foreignKey: 'userId' });
-    Team.hasMany(Post, { foreignKey: 'teamId' });
+    User.belongsToMany(Team, { through: UserTeams })
+    Team.belongsToMany(User, { through: UserTeams })
+    User.hasMany(Post, { foreignKey: 'userId' })
+    Team.hasMany(Post, { foreignKey: 'teamId' })
 
-    await User.sync({ alter: true })
     await Team.sync({ alter: true })
+    await User.sync({ alter: true })
     await Post.sync({ alter: true })
-
+    await UserTeams.sync({ alter: true })
   } catch (err) {
     throw new Error(err)
   }

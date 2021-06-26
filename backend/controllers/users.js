@@ -26,7 +26,7 @@ class UserController {
       const token = jwt.sign({
         id: exists.userId
       }, process.env.SECRET_KEY)
-      exists.userPassword=null
+      exists.userPassword = null
       return {
         error: false,
         code: 200,
@@ -66,7 +66,7 @@ class UserController {
       const token = jwt.sign({
         id: createdUser.userId
       }, process.env.SECRET_KEY)
-     createdUser.userPassword=null
+      createdUser.userPassword = null
       return {
         error: false,
         code: 201,
