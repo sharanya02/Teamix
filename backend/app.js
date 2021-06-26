@@ -6,6 +6,7 @@ const logger = require('./logging/logger')
 const db = require('./database/connection')
 const users = require('./routes/users')
 const teams = require('./routes/teams')
+const posts = require('./routes/posts')
 const routes = require('./routes')
 
 const app = express()
@@ -41,5 +42,6 @@ app.use(morgan)
 app.use('/', routes)
 app.use('/api/v1/user', users)
 app.use('/api/v1/team', teams)
+app.use('/api/v1/post', posts)
 
 module.exports = app
