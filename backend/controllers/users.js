@@ -83,6 +83,43 @@ class UserController {
       }
     }
   }
+
+  static async fetchUser (userId) {
+    try {
+      const query = {
+        where: {
+          userId: userId
+        },
+        include:
+          [
+            {
+              all: true
+            }
+          ]
+      }
+      const user = await User.findOne(query)
+      if (!user) {
+        return {
+          error: true,
+          message: 'No such user found',
+          code: 404
+        }
+      }
+      return {
+        error: false,
+        message: 'User details fetched successfully',
+        code: 200,
+        user: user
+      }
+    } catch (err) {
+      logger.error('An error occurred' + err)
+      return {
+        error: true,
+        message: 'An Error Occurred' + err,
+        code: 500
+      }
+    }
+  }
 }
 
 module.exports = UserController

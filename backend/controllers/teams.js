@@ -219,5 +219,42 @@ class TeamController {
       }
     }
   }
+
+  static async fetchTeam (teamId) {
+    try {
+      const query = {
+        where: {
+          teamId: teamId
+        },
+        include:
+          [
+            {
+              all: true
+            }
+          ]
+      }
+      const team = await Team.findOne(query)
+      if (!team) {
+        return {
+          error: true,
+          message: 'No such team found',
+          code: 404
+        }
+      }
+      return {
+        error: false,
+        message: 'Team details fetched successfully',
+        code: 200,
+        team: team
+      }
+    } catch (err) {
+      logger.error('An error occurred' + err)
+      return {
+        error: true,
+        message: 'An Error Occurred' + err,
+        code: 500
+      }
+    }
+  }
 }
 module.exports = TeamController

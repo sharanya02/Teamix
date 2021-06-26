@@ -20,4 +20,10 @@ router.post('/delete', middlewares.isLoggedIn, async (req, res) => {
   res.status(response.code).send(response)
 })
 
+router.post('/details/fetch', middlewares.isLoggedIn, async (req, res) => {
+  const { postId } = req.body
+  const response = await PostController.fetchPost(postId)
+  res.status(response.code).send(response)
+})
+
 module.exports = router

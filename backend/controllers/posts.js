@@ -117,6 +117,43 @@ class PostController {
       }
     }
   }
+
+  static async fetchPost (postId) {
+    try {
+      const query = {
+        where: {
+          postId: postId
+        },
+        include:
+          [
+            {
+              all: true
+            }
+          ]
+      }
+      const post = await Post.findOne(query)
+      if (!post) {
+        return {
+          error: true,
+          message: 'No such post found',
+          code: 404
+        }
+      }
+      return {
+        error: false,
+        message: 'Post details fetched successfully',
+        code: 200,
+        post: post
+      }
+    } catch (err) {
+      logger.error('An error occurred' + err)
+      return {
+        error: true,
+        message: 'An Error Occurred' + err,
+        code: 500
+      }
+    }
+  }
 }
 
 module.exports = PostController

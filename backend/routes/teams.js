@@ -31,4 +31,11 @@ router.post('/user/delete', middlewares.isLoggedIn, async (req, res) => {
   const response = await TeamController.removeUser(req.decoded.id, userId, teamId)
   res.status(response.code).send(response)
 })
+
+router.post('/details/fetch', middlewares.isLoggedIn, async (req, res) => {
+  const { teamId } = req.body
+  const response = await TeamController.fetchTeam(teamId)
+  res.status(response.code).send(response)
+})
+
 module.exports = router
