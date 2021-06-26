@@ -5,7 +5,7 @@ const User = require('../models/users')
 const UserTeams = require('../models/userTeam')
 
 class TeamController {
-  static async createTeam (userId, teamName) {
+  static async createTeam(userId, teamName) {
     try {
       const exist = await User.findOne({ where: { userId: userId } })
       if (!exist) {
@@ -45,7 +45,7 @@ class TeamController {
     }
   }
 
-  static async addUser (userId, teamId) {
+  static async addUser(userId, teamId) {
     try {
       const team = await Team.findOne({ where: { teamId } })
       if (!team) {
@@ -85,7 +85,47 @@ class TeamController {
     }
   }
 
-  static async removeTeam (userId, teamId) {
+  static async joinTeam(userId, teamId) {
+    try {
+      const team = await Team.findOne({ where: { teamId } })
+      if (!team) {
+        return {
+          error: true,
+          message: 'No such team exists',
+          code: 404
+        }
+      }
+      const exists = await UserTeams.findOne({ where: { UserUserId: userId, TeamTeamId: teamId } })
+      if (exists) {
+        return {
+          error: true,
+          message: 'User already exists in team',
+          code: 409
+        }
+      }
+      const userteam = {
+        UserUserId: userId,
+        TeamTeamId: teamId
+      }
+      const newUser = await UserTeams.create(userteam)
+      return {
+        error: false,
+        message: 'Member added successfully',
+        code: 201,
+        user: newUser
+      }
+    } catch (err) {
+      logger.error('An error occurred' + err)
+      return {
+        error: true,
+        message: 'An Error Occurred' + err,
+        code: 500
+      }
+    }
+  }
+
+
+  static async removeTeam(userId, teamId) {
     try {
       const team = await Team.findOne({ where: { teamId } })
       if (!team) {
@@ -129,7 +169,7 @@ class TeamController {
     }
   }
 
-  static async removeUser (hostId, userId, teamId) {
+  static async removeUser(hostId, userId, teamId) {
     try {
       const team = await Team.findOne({ where: { teamId } })
       if (!team) {

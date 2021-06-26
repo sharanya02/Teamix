@@ -14,6 +14,12 @@ router.post('/user/add', middlewares.isLoggedIn, async (req, res) => {
   res.status(response.code).send(response)
 })
 
+router.post('/user/join', middlewares.isLoggedIn, async (req, res) => {
+  const { teamId } = req.body
+  const response = await TeamController.addUser(req.decoded.io, teamId)
+  res.status(response.code).send(response)
+})
+
 router.post('/delete', middlewares.isLoggedIn, async (req, res) => {
   const { teamId } = req.body
   const response = await TeamController.removeTeam(req.decoded.id, teamId)
