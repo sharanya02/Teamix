@@ -8,6 +8,12 @@ router.post('/create', middlewares.isLoggedIn, async (req, res) => {
   res.status(response.code).send(response)
 })
 
+router.post('/like', middlewares.isLoggedIn, async (req, res) => {
+  const { postId, increment } = req.body
+  const response = await PostController.createPost(postId, increment)
+  res.status(response.code).send(response)
+})
+
 router.post('/delete', middlewares.isLoggedIn, async (req, res) => {
   const { postId } = req.body
   const response = await PostController.deletePost(req.decoded.id, postId)

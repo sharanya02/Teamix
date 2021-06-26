@@ -5,7 +5,7 @@ const User = require('../models/users')
 const UserTeams = require('../models/userTeam')
 
 class TeamController {
-  static async createTeam(userId, teamName) {
+  static async createTeam (userId, teamName) {
     try {
       const exist = await User.findOne({ where: { userId: userId } })
       if (!exist) {
@@ -45,7 +45,7 @@ class TeamController {
     }
   }
 
-  static async addUser(userId, teamId) {
+  static async addUser (userId, teamId) {
     try {
       const team = await Team.findOne({ where: { teamId } })
       if (!team) {
@@ -85,7 +85,7 @@ class TeamController {
     }
   }
 
-  static async joinTeam(userId, teamId) {
+  static async joinTeam (userId, teamId) {
     try {
       const team = await Team.findOne({ where: { teamId } })
       if (!team) {
@@ -124,8 +124,7 @@ class TeamController {
     }
   }
 
-
-  static async removeTeam(userId, teamId) {
+  static async removeTeam (userId, teamId) {
     try {
       const team = await Team.findOne({ where: { teamId } })
       if (!team) {
@@ -169,7 +168,7 @@ class TeamController {
     }
   }
 
-  static async removeUser(hostId, userId, teamId) {
+  static async removeUser (hostId, userId, teamId) {
     try {
       const team = await Team.findOne({ where: { teamId } })
       if (!team) {
