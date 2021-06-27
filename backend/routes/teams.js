@@ -16,7 +16,7 @@ router.post('/user/add', middlewares.isLoggedIn, async (req, res) => {
 
 router.post('/user/join', middlewares.isLoggedIn, async (req, res) => {
   const { teamId } = req.body
-  const response = await TeamController.addUser(req.decoded.io, teamId)
+  const response = await TeamController.joinTeam(req.decoded.io, teamId)
   res.status(response.code).send(response)
 })
 

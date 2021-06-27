@@ -110,7 +110,7 @@ class TeamController {
       const newUser = await UserTeams.create(userteam)
       return {
         error: false,
-        message: 'Member added successfully',
+        message: 'Team joined successfully',
         code: 201,
         user: newUser
       }
