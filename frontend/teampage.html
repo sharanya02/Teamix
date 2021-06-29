@@ -6,9 +6,104 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+        /* Style the sidebar - fixed full height */
+        .sidebar {
+            height: 100%;
+            width: 80px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #00B4CC;
+            overflow-x: hidden;
+            padding-top: 16px;
+        }
+
+        /* Style sidebar links */
+        .sidebar a {
+            padding: 12px 8px 12px 15px;
+            text-decoration: none;
+            font-size: 35px;
+            color: white;
+            display: block;
+        }
+
+        /* Style links on mouse-over */
+        .sidebar a:hover {
+            color: black;
+        }
+
+        /* Style the main content */
+        .main {
+            margin-left: 160px;
+            /* Same as the width of the sidenav */
+            padding: 0px 10px;
+        }
+
+        /* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+            .sidebar a {
+                font-size: 18px;
+            }
+        }
+
+        body {
+            background-color: #f6f5f7;
+        }
+
+        footer {
+            background-color: #222;
+            color: #fff;
+            font-size: 14px;
+            bottom: 0;
+            position: fixed;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 999;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        footer i {
+            color: red;
+        }
+
+        footer a {
+            color: #3c97bf;
+            text-decoration: none;
+        }
+    </style>
 </head>
 
-<body>
+<body onload="loadTeam()">
+    <!-- Load an icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <br><br><br> <br><br><br>
+        <a href="#teams"><i class="fa fa-fw fa-user"></i> </a>
+        <br><br>
+        <a href="#chat"><i class="fa fa-fw fa-wrench"></i> </a>
+        <br>
+        <br>
+        <a href="home.html"><i class="fa fa-fw fa-group"></i> </a>
+        <br>
+        <br>
+        <a href="#contact"><i class="fa fa-fw fa-wechat"></i> </a>
+        <br>
+        <br>
+    </div>
     <footer>
         <p>
             Created by
@@ -18,5 +113,11 @@
 
 
 </body>
-
+<script>
+    function loadTeam(){
+        const teamid = localStorage.getItem(teamid)
+        console.log(teamid)
+        localStorage.removeItem('teamid');
+    }
+</script>
 </html>

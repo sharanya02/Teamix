@@ -288,8 +288,9 @@
                         buttondiv.innerText = "Go"
 
                         buttondiv.id = ((result.user).Teams[i]).teamId
-                        buttondiv.addEventListener("click", storeteamdet(buttondiv.id))
-
+                        // buttondiv.addEventListener("click", storeteamdet(((result.user).Teams[i]).teamId))
+                        buttondiv.onclick = storeteamdet(((result.user).Teams[i]).teamId)
+                        
                         newDiv.classList.add('teamdiv')
                         buttondiv.classList.add('buttonteamdiv')
                         txt.classList.add('teamnametxt')
@@ -309,7 +310,8 @@
             .catch(error => console.log('error', error));
     }
     function storeteamdet(id) {
-        localStorage.setItem("teamId", id);
+        localStorage.setItem("teamid", id);
+        // location.href = 'teampage.html';
     }
 
 </script>
