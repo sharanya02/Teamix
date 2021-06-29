@@ -15,8 +15,7 @@ router.post('/login', async (req, res) => {
 })
 
 router.post('/details/fetch', middlewares.isLoggedIn, async (req, res) => {
-  const { userId } = req.body
-  const response = await UserController.fetchUser(userId)
+  const response = await UserController.fetchUser(req.decoded.id)
   res.status(response.code).send(response)
 })
 

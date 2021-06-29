@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
         /* Style the sidebar - fixed full height */
         .sidebar {
             height: 100%;
@@ -122,10 +124,93 @@
             color: #3c97bf;
             text-decoration: none;
         }
+
+        .yourteam {
+            padding-left: 150px;
+            font-size: 30px;
+            position: absolute;
+            padding-top: 120px;
+            font-family: 'Montserrat', sans-serif;
+            color: #646363;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            background-color: #fff;
+            border: none;
+            color: rgb(78, 78, 78);
+            letter-spacing: 1.5px;
+            padding: 15px;
+            width: 15%;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 17px;
+            margin: 20px 20px;
+            top: 90px;
+            position: absolute;
+            right: 50px;
+            box-shadow: 2px 2px 5px #aaaaaa;
+        }
+
+        .btn:hover {
+            background-color: #b3b2b2;
+        }
+
+        .teamdiv {
+            flex-direction: column;
+            position: relative;
+            width: 320px;
+            height: 300px;
+            left: 180px;
+            top: 20px;
+            background-color: white;
+            box-shadow: 0px 5px 10px #acafb1;
+            margin: 0 6em 6em 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        .teamnametxt {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 25px;
+            color: rgb(75, 75, 75);
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            margin: 2em 0;
+        }
+
+        .buttonteamdiv {
+            display: flex;
+            position: relative;
+            border-radius: 20px;
+            border: 1px solid #00B4CC;
+            background-color: #00B4CC;
+            color: #FFFFFF;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 12px 45px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: transform 80ms ease-in;
+        }
+
+        .buttonteamdiv:hover {
+            background-color: #1c8dbd;
+        }
     </style>
 </head>
 
-<body>
+<body onload="loadTeam()">
     <!-- Load an icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -152,6 +237,19 @@
             </button>
         </div>
     </div>
+    <a href='jointeam.html'><button class="btn"><i class="fa fa-group"></i> Create or Join a Team</button></a>
+    <div class="yourteam">
+        Your Teams
+    </div>
+    <svg height="170" width="1800">
+        <line x1="150" y1="170" x2="1770" y2="170" style="stroke:#C4C4C4;stroke-width:1.5" />
+    </svg>
+    <div class="container">
+
+    </div>
+
+
+
     <footer>
         <p>
             Created by
@@ -159,5 +257,61 @@
         </p>
     </footer>
 </body>
+<script>
+    function loadTeam() {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append('Authorization', `Bearer ${localStorage.getItem('token')}`);
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+        fetch("http://localhost:3000/api/v1/user/details/fetch", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                console.log(result)
+                const { data } = result;
+
+                if (result.message == "User details fetched successfully") {
+
+                    let container = document.querySelector('.container');
+
+                    for (let i = 0; i < ((result.user).Teams).length; i++) {
+
+                        const newDiv = document.createElement("div")
+                        const buttondiv = document.createElement("button")
+                        const txt = document.createElement("p")
+
+                        txt.innerText = (((result.user).Teams[i]).teamName)
+                        buttondiv.innerText = "Go"
+
+                        buttondiv.id = ((result.user).Teams[i]).teamId
+                        buttondiv.addEventListener("click", storeteamdet(buttondiv.id))
+
+                        newDiv.classList.add('teamdiv')
+                        buttondiv.classList.add('buttonteamdiv')
+                        txt.classList.add('teamnametxt')
+
+                        newDiv.appendChild(txt)
+                        newDiv.appendChild(buttondiv)
+                        container.appendChild(newDiv)
+                    }
+                }
+                else {
+                    alert(result.message)
+                }
+
+
+
+            })
+            .catch(error => console.log('error', error));
+    }
+    function storeteamdet(id) {
+        localStorage.setItem("teamId", id);
+    }
+
+</script>
 
 </html>
