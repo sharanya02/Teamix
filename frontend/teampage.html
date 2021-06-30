@@ -103,7 +103,8 @@
             color: #3c97bf;
             text-decoration: none;
         }
-        .teamnametxt{
+
+        .teamnametxt {
             padding-left: 38px;
             font-size: 30px;
             position: absolute;
@@ -114,7 +115,8 @@
             font-weight: bold;
             text-transform: uppercase;
         }
-        .teamtxt{
+
+        .teamtxt {
             padding-left: 100px;
             font-size: 30px;
             position: absolute;
@@ -123,9 +125,29 @@
             color: #424242;
             letter-spacing: 1px;
             font-weight: bold;
-            
+
         }
-        img{
+
+        input {
+            position: absolute;
+            background-color: rgb(214, 214, 214);
+            color: white;
+            border: none;
+            bottom: 90px;
+            width: 1250px;
+            height: 150px;
+            left: 480px;
+            font-family: 'Montserrat', sans-serif;
+            color: #2a2a2a;
+            letter-spacing: 1px;
+            font-weight: bold;
+            font-size: 25px;
+            padding-left: 40px;
+
+
+        }
+
+        img {
             padding-left: 43%;
             width: 600px;
             height: 480px;
@@ -136,7 +158,7 @@
 <body onload="loadTeam()">
     <!-- Load an icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <img src="img.png" alt="img" >
+    <img src="img.png" alt="img">
     <!-- Sidebar for teams -->
     <div class="teamsbar">
     </div>
@@ -155,8 +177,10 @@
         <br>
         <br>
     </div>
-    
+
     <div class="teamnamebox"></div>
+
+    <input id="postcont" type="text" placeholder="Start a conversation!" required /><br><br>
 
     <footer>
         <p>
@@ -174,8 +198,6 @@
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append('Authorization', `Bearer ${localStorage.getItem('token')}`);
         const tid = localStorage.getItem('teamid')
-
-        // localStorage.removeItem('teamid');
 
         var raw = JSON.stringify({
             "teamId": tid,
@@ -198,7 +220,7 @@
                     let container = document.querySelector('.teamnamebox');
                     let container2 = document.querySelector('.teamsbar');
 
-                    const name= result.team.teamName
+                    const name = result.team.teamName
                     const letter = name.charAt(0);
 
                     const txt = document.createElement("p")
@@ -212,7 +234,7 @@
 
                     container.appendChild(txt)
                     container2.appendChild(txt2)
-         }
+                }
                 else {
                     alert(result.message)
                 }
