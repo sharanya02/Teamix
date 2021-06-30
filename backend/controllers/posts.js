@@ -15,19 +15,19 @@ class PostController {
           code: 404
         }
       }
-      const exist = await UserTeams.findOne({
-        where: {
-          UserUserId: userId,
-          TeamTeamId: teamId
-        }
-      })
-      if (!exist) {
-        return {
-          error: true,
-          message: 'No such user in the team found',
-          code: 404
-        }
-      }
+      // const exist = await UserTeams.findOne({
+      //   where: {
+      //     UserUserId: userId,
+      //     TeamTeamId: teamId
+      //   }
+      // })
+      // if (!exist) {
+      //   return {
+      //     error: true,
+      //     message: 'No such user in the team found',
+      //     code: 404
+      //   }
+      // }
       const post = {
         postId: uuid4(),
         postContent: postContent,
