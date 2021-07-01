@@ -136,10 +136,10 @@
             /* top: 0px; */
             margin: 5em 0em;
             width: 1200px;
-            height: 130px;
+            height: 110px;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            /* justify-content: center;
+            align-items: center; */
             box-shadow: 2px 2px 5px #aaaaaa;
 
 
@@ -192,27 +192,29 @@
         }
 
         .deletebtn {
-            background-color: #00B4CC;
+            background-color: rgb(228, 227, 227);
             border: none;
-            color: rgb(255, 255, 255);
-            letter-spacing: 1.5px;
-            font-size: 30px;
-            font-weight: bold;
-            border-radius: 5em;
-            padding: 15px;
-            width: 4.5%;
-            text-align: center;
+            width: 3%;
+            /* text-align: center;
             text-decoration: none;
-            display: inline-block;
+            display: inline-block; */
             font-size: 17px;
-            margin: 20px 20px;
+            /* margin: 20px 20px; */
             top: 0px;
             position: absolute;
-            right: 20px;
-            box-shadow: 2px 2px 5px #aaaaaa;
+            right: 10px;
+            /* box-shadow: 2px 2px 5px #aaaaaa; */
 
         }
 
+        .deletebtntxt{
+            color: #424242;
+            letter-spacing: 1.5px;
+            font-size: 20px;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            position: absolute;
+        }
         input {
             position: fixed;
             background-color: rgb(255, 255, 255);
@@ -228,7 +230,7 @@
             font-size: 20px;
             padding-left: 40px;
             padding-top: 0%;
-            bottom: 0px;
+            bottom: 25px;
             flex-direction: column;
             display: flex;
             box-shadow: 0px 5px 10px #acafb1;
@@ -239,13 +241,48 @@
             width: 600px;
             height: 470px;
         }
+
+        .btnbar {
+            position: absolute;
+            left: 85%;
+            top: 20px;
+            width: 200px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .videocall {
+            font-family: 'Montserrat', sans-serif;
+            color: #00B4CC;
+            letter-spacing: 1px;
+            font-weight: bold;
+            font-size: 40px;
+            border: none;
+            background-color: #f6f5f7;
+        }
+
+        .info {
+            margin-left: 1em;
+            font-family: 'Montserrat', sans-serif;
+            color: #00B4CC;
+            letter-spacing: 1px;
+            font-weight: bold;
+            font-size: 40px;
+            border: none;
+            background-color: #f6f5f7;
+        }
     </style>
 </head>
 
 <body onload="loadTeam()">
     <!-- Load an icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <svg height="80" width="1800">
+        <line x1="480" y1="80" x2="1750" y2="80" style="stroke:#C4C4C4;stroke-width:1.5" />
+    </svg>
     <img src="img.png" alt="img">
 
     <!-- Sidebar for teams -->
@@ -267,10 +304,16 @@
         <br>
     </div>
 
+    
+    <div class="btnbar">
+        <button class="videocall"><i class="fa fa-video-camera"></i></button>
+        <button class="info"><i class="fa fa-info-circle"></i></button>
+    </div>
+
     <div class="postsection">
-        <svg height="30" width="1800">
+        <!-- <svg height="30" width="1800">
             <line x1="480" y1="30" x2="1690" y2="30" style="stroke:#C4C4C4;stroke-width:1.5" />
-        </svg>
+        </svg> -->
     </div>
 
     <div class="teamnamebox"></div>
@@ -340,16 +383,20 @@
                         const postdiv = document.createElement("div")
                         const posttxt = document.createElement("p")
                         const deletebtn = document.createElement("button")
+                        const deletebtntxt = document.createElement("p")
 
                         posttxt.innerText = ((result.team).Posts[i]).postContent
-                        deletebtn.innerText = "x"
+                        deletebtntxt.innerText = "x"
+
 
                         postdiv.classList.add('postdiv')
                         posttxt.classList.add('posttxt')
                         deletebtn.classList.add('deletebtn')
+                        deletebtntxt.classList.add('deletebtntxt')
 
                         deletebtn.onclick = () => deletepost(((result.team).Posts[i]).postId)
 
+                        deletebtn.appendChild(deletebtntxt)
                         postdiv.appendChild(posttxt)
                         postdiv.appendChild(deletebtn)
                         postcontainer.appendChild(postdiv)
@@ -409,7 +456,7 @@
 
     }
 
-    function deletepost(id){
+    function deletepost(id) {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append('Authorization', `Bearer ${localStorage.getItem('token')}`);
