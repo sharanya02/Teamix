@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
@@ -100,30 +101,6 @@
             transform: translate(-50%, -50%);
         }
 
-        footer {
-            background-color: #222;
-            color: #fff;
-            font-size: 14px;
-            bottom: 0;
-            position: fixed;
-            left: 0;
-            right: 0;
-            text-align: center;
-            z-index: 999;
-        }
-
-        footer p {
-            margin: 10px 0;
-        }
-
-        footer i {
-            color: red;
-        }
-
-        footer a {
-            color: #3c97bf;
-            text-decoration: none;
-        }
 
         .yourteam {
             padding-left: 150px;
@@ -226,6 +203,7 @@
         .buttonteamdiv:hover {
             background-color: #1c8dbd;
         }
+
     </style>
 </head>
 
@@ -266,15 +244,17 @@
     <div class="container">
 
     </div>
+<div class="chatbot">
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+      chat-icon="https:&#x2F;&#x2F;icon-library.com&#x2F;images&#x2F;chatbot-icon&#x2F;chatbot-icon-4.jpg"
+      intent="WELCOME"
+      chat-title="engage"
+      agent-id="f04fa180-8ef5-4b94-8691-f859985b2203"
+      language-code="en"
+    ></df-messenger>
+</div>
 
-
-
-    <footer>
-        <p>
-            Created by
-            <a target="_blank" href="https://github.com/sharanya02">Sharanya Mukherjee</a>
-        </p>
-    </footer>
 </body>
 <script>
     function loadTeam() {
