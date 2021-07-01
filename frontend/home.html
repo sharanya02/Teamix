@@ -167,19 +167,37 @@
             background-color: white;
             box-shadow: 0px 5px 10px #acafb1;
             margin: 0 6em 6em 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+
 
 
         }
-
+        .deleteTeam{
+            background-color: white;
+            position: absolute;
+            left: 75%;
+            border: 1px solid #ffffff;
+            width: 60px;
+            height: 60px;
+            top: 10px;
+            transition: transform 80ms ease-in;
+            
+        }
+        .deletebtntxt{
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            color: #424242;
+            top: 0px;
+        }
         .teamnametxt {
             font-family: 'Montserrat', sans-serif;
             font-size: 25px;
             color: rgb(75, 75, 75);
             font-weight: bold;
             letter-spacing: 1px;
+            left: 38%;
+            top: 38%;
+            position: absolute;
         }
 
         .container {
@@ -190,9 +208,10 @@
         }
 
         .buttonteamdiv {
-            display: flex;
-            position: relative;
-            border-radius: 20px;
+            position: absolute;
+            left: 33%;
+            top:60%;
+            border-radius: 3em;
             border: 1px solid #00B4CC;
             background-color: #00B4CC;
             color: #FFFFFF;
@@ -283,17 +302,25 @@
                         const newDiv = document.createElement("div")
                         const buttondiv = document.createElement("button")
                         const txt = document.createElement("p")
+                        const deleteTeam =document.createElement("button")
+                        const deletebtntxt = document.createElement("p")
 
                         txt.innerText = (((result.user).Teams[i]).teamName)
                         buttondiv.innerText = "Go"
+                        deletebtntxt.innerText = "x"
 
                         buttondiv.id = ((result.user).Teams[i]).teamId
                         buttondiv.onclick = () => storeteamdet(((result.user).Teams[i]).teamId)
+                        deleteTeam.onclick = () => deleteteam(((result.user).Teams[i]).teamId)
                         
                         newDiv.classList.add('teamdiv')
                         buttondiv.classList.add('buttonteamdiv')
                         txt.classList.add('teamnametxt')
+                        deleteTeam.classList.add('deleteTeam')
+                        deletebtntxt.classList.add('deletebtntxt')
 
+                        deleteTeam.appendChild(deletebtntxt)
+                        newDiv.appendChild(deleteTeam)
                         newDiv.appendChild(txt)
                         newDiv.appendChild(buttondiv)
                         container.appendChild(newDiv)
@@ -312,6 +339,40 @@
         localStorage.removeItem('teamid');
         localStorage.setItem("teamid", id);
         location.href = 'teampage.html';
+    }
+    function deleteteam(id){
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append('Authorization', `Bearer ${localStorage.getItem('token')}`);
+
+        var raw = JSON.stringify({
+            "teamId": id
+        });
+
+        console.log(raw)
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:3000/api/v1/team/delete", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                console.log(result)
+                const { data } = result;
+                if (result.message == "Team deleted successfully") {
+                    window.location.reload()
+
+                }
+                else {
+                    alert(result.message)
+                }
+
+            })
+            .catch(error => console.log('error', error));
+
     }
 
 </script>

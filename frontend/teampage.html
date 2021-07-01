@@ -128,22 +128,24 @@
 
         }
 
-        .postdiv{
+        .postdiv {
             flex-direction: column;
             position: relative;
-            background-color: rgb(214, 214, 214) ;
+            background-color: rgb(228, 227, 227);
             left: 480px;
             /* top: 0px; */
-            margin :5em 0em;
-            width: 1250px;
-            height: 150px;
+            margin: 5em 0em;
+            width: 1200px;
+            height: 130px;
             display: flex;
             justify-content: center;
             align-items: center;
+            box-shadow: 2px 2px 5px #aaaaaa;
 
 
         }
-        .posttxt{
+
+        .posttxt {
             /* padding-left: 100px; */
             font-size: 25px;
             position: absolute;
@@ -159,11 +161,58 @@
             align-items: center;
 
         }
-        .postsection{
+
+        .postsubmit {
+            background-color: #00B4CC;
+            border: none;
+            color: rgb(255, 255, 255);
+            letter-spacing: 1.5px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 2em;
+            padding: 15px;
+            width: 9%;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 17px;
+            margin: 20px 20px;
+            top: 87%;
+            position: fixed;
+            right: 45px;
+            box-shadow: 2px 2px 5px #aaaaaa;
+
+        }
+
+        .postsection {
             position: absolute;
             top: 50%;
-            
+
+
         }
+
+        .deletebtn {
+            background-color: #00B4CC;
+            border: none;
+            color: rgb(255, 255, 255);
+            letter-spacing: 1.5px;
+            font-size: 30px;
+            font-weight: bold;
+            border-radius: 5em;
+            padding: 15px;
+            width: 4.5%;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 17px;
+            margin: 20px 20px;
+            top: 0px;
+            position: absolute;
+            right: 20px;
+            box-shadow: 2px 2px 5px #aaaaaa;
+
+        }
+
         input {
             position: fixed;
             background-color: rgb(255, 255, 255);
@@ -196,10 +245,12 @@
 <body onload="loadTeam()">
     <!-- Load an icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <img src="img.png" alt="img">
+
     <!-- Sidebar for teams -->
-    <div class="teamsbar">
-    </div>
+    <div class="teamsbar"></div>
+
     <!-- The sidebar -->
     <div class="sidebar">
         <br><br><br> <br><br><br>
@@ -215,12 +266,13 @@
         <br>
         <br>
     </div>
-<div class="postsection"></div>
+
+    <div class="postsection"></div>
 
     <div class="teamnamebox"></div>
 
     <input id="postcont" type="text" placeholder="Start a conversation!" required /><br><br>
-
+    <button class="postsubmit" onclick="enterpost()"><i class="fa fa-forward"></i> Post!</button>
     <footer>
         <p>
             Created by
@@ -232,11 +284,11 @@
 
 </body>
 <script>
+    const tid = localStorage.getItem('teamid')
     function loadTeam() {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append('Authorization', `Bearer ${localStorage.getItem('token')}`);
-        const tid = localStorage.getItem('teamid')
 
         var raw = JSON.stringify({
             "teamId": tid,
@@ -274,19 +326,27 @@
                     container.appendChild(txt)
                     container2.appendChild(txt2)
 
+
                     const postdiv = document.createElement("div")
                     const posttxt = document.createElement("p")
 
-                    let postcontainer = document. querySelector('.postsection')
+                    let postcontainer = document.querySelector('.postsection')
                     for (let i = 0; i < ((result.team).Posts).length; i++) {
                         const postdiv = document.createElement("div")
                         const posttxt = document.createElement("p")
-                        posttxt.innerText=((result.team).Posts[i]).postContent
+                        const deletebtn = document.createElement("button")
+
+                        posttxt.innerText = ((result.team).Posts[i]).postContent
+                        deletebtn.innerText = "x"
 
                         postdiv.classList.add('postdiv')
                         posttxt.classList.add('posttxt')
+                        deletebtn.classList.add('deletebtn')
+
+                        deletebtn.onclick = () => deletepost(((result.team).Posts[i]).postId)
 
                         postdiv.appendChild(posttxt)
+                        postdiv.appendChild(deletebtn)
                         postcontainer.appendChild(postdiv)
 
                     }
@@ -294,7 +354,8 @@
                     postcontainer.appendChild(document.createElement("br"))
                     postcontainer.appendChild(document.createElement("br"))
                     postcontainer.appendChild(document.createElement("br"))
-                    postcontainer.appendChild(document.createElement("br"))                }
+                    postcontainer.appendChild(document.createElement("br"))
+                }
                 else {
                     alert(result.message)
                 }
@@ -307,6 +368,79 @@
 
 
     }
+    function enterpost() {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append('Authorization', `Bearer ${localStorage.getItem('token')}`);
+
+        var raw = JSON.stringify({
+            "teamId": tid,
+            "postContent": document.getElementById('postcont').value
+        });
+
+        console.log(raw)
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:3000/api/v1/post/create", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                console.log(result)
+                const { data } = result;
+                if (result.message == "Post Successfully Created") {
+                    window.location.reload()
+
+                }
+                else {
+                    alert(result.message)
+                }
+
+            })
+            .catch(error => console.log('error', error));
+
+    }
+
+    function deletepost(id){
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append('Authorization', `Bearer ${localStorage.getItem('token')}`);
+
+        var raw = JSON.stringify({
+            "postId": id
+        });
+
+        console.log(raw)
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:3000/api/v1/post/delete", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                console.log(result)
+                const { data } = result;
+                if (result.message == "Post Successfully Deleted") {
+                    window.location.reload()
+
+                }
+                else {
+                    alert(result.message)
+                }
+
+            })
+            .catch(error => console.log('error', error));
+
+
+    }
+
+
 </script>
 
 </html>

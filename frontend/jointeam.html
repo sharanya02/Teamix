@@ -266,6 +266,28 @@
             left: 20px;
             top: 30px;
         }
+        .teamid{
+            position: absolute;
+            width: 40em;
+            height: 5em;
+            left:33%;
+            top: 90px;
+            background-color: #f6f5f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 4em;
+            box-shadow: 0px 5px 10px #acafb1;
+        }
+        .teamidtxt{
+            color: rgb(39, 39, 39);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+
+            
+
+        }
     </style>
 </head>
 
@@ -349,7 +371,16 @@
                     console.log(result)
                     const { data } = result;
                     if (result.message == "Team Successfully Created") {
-                        window.location.href = 'home.html';
+                        const ti = document.createElement("div")
+                        const titxt = document.createElement("p")
+
+                        titxt.innerText = (result.team).teamId
+                        
+                        ti.classList.add("teamid")
+                        titxt.classList.add("teamidtxt")
+
+                        ti.appendChild(titxt)
+                        document.body.appendChild(ti)
 
                     }
                     else {
