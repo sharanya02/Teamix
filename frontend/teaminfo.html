@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
          footer {
             background-color: #222;
             color: #fff;
@@ -30,28 +32,32 @@
             color: #3c97bf;
             text-decoration: none;
         }
-        button {
+        .back {
             border-radius: 20px;
             border: 1px solid #00B4CC;
             background-color: #00B4CC;
             color: #FFFFFF;
-            font-size: 12px;
+            font-size: 17px;
+            font-family: 'Montserrat', sans-serif;
             font-weight: bold;
             padding: 12px 45px;
             letter-spacing: 1px;
             text-transform: uppercase;
             transition: transform 80ms ease-in;
+            top: 20px;
+            left:20px;
+            position: fixed;
         }
 
-        button:active {
+        .back:active {
             transform: scale(0.95);
         }
 
-        button:focus {
+        .back:focus {
             outline: none;
         }
 
-        button.ghost {
+        .back.ghost {
             background-color: transparent;
             border-color: #FFFFFF;
         }
@@ -59,7 +65,7 @@
     </style>
 </head>
 <body>
-    <a  href="teampage.html">  <button><i class="fa fa-info-circle"></i> back</button></a>
+    <a  href="teampage.html">  <button class = "back"><i class="fa fa-info-circle"></i> back</button></a>
     <footer>
         <p>
             Created by

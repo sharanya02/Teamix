@@ -172,8 +172,8 @@
             color: rgb(75, 75, 75);
             font-weight: bold;
             letter-spacing: 1px;
-            left: 38%;
-            top: 38%;
+            left: 40%;
+            top: 65%;
             position: absolute;
         }
 
@@ -187,16 +187,18 @@
         .buttonteamdiv {
             position: absolute;
             left: 33%;
-            top:60%;
-            border-radius: 3em;
+            top:30%;
             border: 1px solid #00B4CC;
             background-color: #00B4CC;
             color: #FFFFFF;
-            font-size: 12px;
             font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 25px;
             padding: 12px 45px;
             letter-spacing: 1px;
             text-transform: uppercase;
+            width: 120px;
+            height: 100px;
             transition: transform 80ms ease-in;
         }
 
@@ -281,12 +283,13 @@
 
                         const newDiv = document.createElement("div")
                         const buttondiv = document.createElement("button")
+                        const buttondivtxt = document.createElement("p")
                         const txt = document.createElement("p")
                         const deleteTeam =document.createElement("button")
                         const deletebtntxt = document.createElement("p")
 
                         txt.innerText = (((result.user).Teams[i]).teamName)
-                        buttondiv.innerText = "Go"
+                        buttondivtxt.innerText = (((result.user).Teams[i]).teamName).charAt(0)
                         deletebtntxt.innerText = "x"
 
                         buttondiv.id = ((result.user).Teams[i]).teamId
@@ -298,11 +301,13 @@
                         txt.classList.add('teamnametxt')
                         deleteTeam.classList.add('deleteTeam')
                         deletebtntxt.classList.add('deletebtntxt')
+                        buttondivtxt.classList.add('buttondiv.txt')
 
                         deleteTeam.appendChild(deletebtntxt)
+                        buttondiv.appendChild(buttondivtxt)
+                        newDiv.appendChild(buttondiv)
                         newDiv.appendChild(deleteTeam)
                         newDiv.appendChild(txt)
-                        newDiv.appendChild(buttondiv)
                         container.appendChild(newDiv)
                     }
                 }

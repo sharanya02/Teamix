@@ -117,7 +117,7 @@
         }
 
         .teamtxt {
-            padding-left: 100px;
+            padding-left: 120px;
             font-size: 30px;
             position: absolute;
             padding-top: 220px;
@@ -133,13 +133,10 @@
             position: relative;
             background-color: rgb(228, 227, 227);
             left: 480px;
-            /* top: 0px; */
-            margin: 5em 0em;
+            margin: 3em 0em;
             width: 1200px;
             height: 110px;
             display: flex;
-            /* justify-content: center;
-            align-items: center; */
             box-shadow: 2px 2px 5px #aaaaaa;
 
 
@@ -195,15 +192,10 @@
             background-color: rgb(228, 227, 227);
             border: none;
             width: 3%;
-            /* text-align: center;
-            text-decoration: none;
-            display: inline-block; */
             font-size: 17px;
-            /* margin: 20px 20px; */
             top: 0px;
             position: absolute;
             right: 10px;
-            /* box-shadow: 2px 2px 5px #aaaaaa; */
 
         }
 
@@ -275,6 +267,16 @@
             border: none;
             background-color: #f6f5f7;
         }
+        .member{
+            font-family: 'Montserrat', sans-serif;
+            color: #909090;
+            letter-spacing: 1px;
+            font-weight: bold;
+            font-size: 20px;
+            left: 10%;
+            top: 30%;
+            position: fixed;
+        }
     </style>
 </head>
 
@@ -312,10 +314,7 @@
     </div>
 
     <div class="postsection">
-        <!-- <svg height="30" width="1800">
-            <line x1="480" y1="30" x2="1690" y2="30" style="stroke:#C4C4C4;stroke-width:1.5" />
-        </svg> -->
-    </div>
+        </div>
 
     <div class="teamnamebox"></div>
 
@@ -359,21 +358,25 @@
 
                     let container = document.querySelector('.teamnamebox');
                     let container2 = document.querySelector('.teamsbar');
+                    const mem = document.createElement("p")
 
                     const name = result.team.teamName
                     const letter = name.charAt(0);
+                    mem.innerText= ((result.team).Users).length +' '+ 'members'
 
                     const txt = document.createElement("p")
                     const txt2 = document.createElement("p")
 
                     txt.classList.add('teamnametxt')
                     txt2.classList.add('teamtxt')
+                    mem.classList.add('member')
 
                     txt.innerText = letter
                     txt2.innerText = name
 
                     container.appendChild(txt)
                     container2.appendChild(txt2)
+                    container2.appendChild(mem)
 
 
                     const postdiv = document.createElement("div")
@@ -385,6 +388,7 @@
                         const posttxt = document.createElement("p")
                         const deletebtn = document.createElement("button")
                         const deletebtntxt = document.createElement("p")
+                        
 
                         posttxt.innerText = ((result.team).Posts[i]).postContent
                         deletebtntxt.innerText = "x"
