@@ -39,6 +39,42 @@ class PostController {
       }
     }
   }
+  static async createMeet (userId, teamId) {
+    try {
+      const team = await Team.findOne({ where: { teamId } })
+      if (!team) {
+        return {
+          error: true,
+          message: 'No such team exists',
+          code: 404
+        }
+      }
+
+      const post = {
+        postId: uuid4(),
+        postContent: 'A meeting is going on',
+        isMeeting: true,
+        userId: userId,
+        teamId: teamId
+      }
+
+      const newPost = await Post.create(post)
+      return {
+        error: false,
+        message: 'Post Successfully Created',
+        code: 201,
+        post: newPost
+      }
+    } catch (err) {
+      logger.error('An error occurred' + err)
+      return {
+        error: true,
+        message: 'An Error Occurred' + err,
+        code: 500
+      }
+    }
+  }
+
 
   static async deletePost (userId, postId) {
     try {

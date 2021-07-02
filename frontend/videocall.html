@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='https://meet.jit.si/external_api.js'></script>
+    <style>
+        .backbtn{
+            position: absolute;
+            background-color: #00B4CC;
+            color: white;
+            left: 40px;
+            top: 39px;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            border-radius: 3em;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 90px;
+            height: 50px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+<a href="teampage.html"><button class="backbtn">Back</button></a>
+</body>
+<script>
+
+    var domain = "meet.jit.si";
+    var options = {
+        roomName: localStorage.getItem('teamid'),
+        width: 1822,
+        height: 971,
+        parentNode: undefined,
+        configOverwrite: {},
+        interfaceConfigOverwrite: {}
+    }
+    var api = new JitsiMeetExternalAPI(domain, options);
+
+</script>
+
+</html>

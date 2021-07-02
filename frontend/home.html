@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
@@ -148,7 +148,8 @@
 
 
         }
-        .deleteTeam{
+
+        .deleteTeam {
             background-color: white;
             position: absolute;
             left: 75%;
@@ -157,15 +158,17 @@
             height: 60px;
             top: 10px;
             transition: transform 80ms ease-in;
-            
+
         }
-        .deletebtntxt{
+
+        .deletebtntxt {
             font-family: 'Montserrat', sans-serif;
             font-size: 20px;
             font-weight: bold;
             color: #424242;
             top: 0px;
         }
+
         .teamnametxt {
             font-family: 'Montserrat', sans-serif;
             font-size: 25px;
@@ -187,7 +190,7 @@
         .buttonteamdiv {
             position: absolute;
             left: 33%;
-            top:30%;
+            top: 30%;
             border: 1px solid #00B4CC;
             background-color: #00B4CC;
             color: #FFFFFF;
@@ -205,7 +208,6 @@
         .buttonteamdiv:hover {
             background-color: #1c8dbd;
         }
-
     </style>
 </head>
 
@@ -216,7 +218,7 @@
     <!-- The sidebar -->
     <div class="sidebar">
         <br><br><br> <br><br><br>
-        <a href="#teams"><i class="fa fa-fw fa-user"></i> </a>
+        <a href="index.html"><i class="fa fa-fw fa-user"></i> </a>
         <br><br>
         <a href="#chat"><i class="fa fa-fw fa-wrench"></i> </a>
         <br>
@@ -246,16 +248,13 @@
     <div class="container">
 
     </div>
-<div class="chatbot">
-    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    <df-messenger
-      chat-icon="https:&#x2F;&#x2F;icon-library.com&#x2F;images&#x2F;chatbot-icon&#x2F;chatbot-icon-4.jpg"
-      intent="WELCOME"
-      chat-title="engage"
-      agent-id="f04fa180-8ef5-4b94-8691-f859985b2203"
-      language-code="en"
-    ></df-messenger>
-</div>
+    <div class="chatbot">
+        <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+        <df-messenger
+            chat-icon="https:&#x2F;&#x2F;icon-library.com&#x2F;images&#x2F;chatbot-icon&#x2F;chatbot-icon-4.jpg"
+            intent="WELCOME" chat-title="engage" agent-id="f04fa180-8ef5-4b94-8691-f859985b2203" language-code="en">
+        </df-messenger>
+    </div>
 
 </body>
 <script>
@@ -285,7 +284,7 @@
                         const buttondiv = document.createElement("button")
                         const buttondivtxt = document.createElement("p")
                         const txt = document.createElement("p")
-                        const deleteTeam =document.createElement("button")
+                        const deleteTeam = document.createElement("button")
                         const deletebtntxt = document.createElement("p")
 
                         txt.innerText = (((result.user).Teams[i]).teamName)
@@ -295,7 +294,7 @@
                         buttondiv.id = ((result.user).Teams[i]).teamId
                         buttondiv.onclick = () => storeteamdet(((result.user).Teams[i]).teamId)
                         deleteTeam.onclick = () => deleteteam(((result.user).Teams[i]).teamId)
-                        
+
                         newDiv.classList.add('teamdiv')
                         buttondiv.classList.add('buttonteamdiv')
                         txt.classList.add('teamnametxt')
@@ -325,7 +324,7 @@
         localStorage.setItem("teamid", id);
         location.href = 'teampage.html';
     }
-    function deleteteam(id){
+    function deleteteam(id) {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append('Authorization', `Bearer ${localStorage.getItem('token')}`);

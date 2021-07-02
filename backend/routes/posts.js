@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const PostController = require('../controllers/posts')
 const middlewares = require('../middlewares/auth')
+const Post = require('../models/posts')
 
 router.post('/create', middlewares.isLoggedIn, async (req, res) => {
   const { teamId, postContent } = req.body
@@ -23,6 +24,12 @@ router.post('/delete', middlewares.isLoggedIn, async (req, res) => {
 router.post('/details/fetch', middlewares.isLoggedIn, async (req, res) => {
   const { postId } = req.body
   const response = await PostController.fetchPost(postId)
+  res.status(response.code).send(response)
+})
+
+router.post('/meeting/create', middlewares.isLoggedIn, async(req, res) => {
+  const {teamId} = req.body
+  const response = await PostController.createMeet(req.decoded.id, teamId)
   res.status(response.code).send(response)
 })
 

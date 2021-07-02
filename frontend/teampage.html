@@ -267,7 +267,8 @@
             border: none;
             background-color: #f6f5f7;
         }
-        .member{
+
+        .member {
             font-family: 'Montserrat', sans-serif;
             color: #909090;
             letter-spacing: 1px;
@@ -276,6 +277,25 @@
             left: 10%;
             top: 30%;
             position: fixed;
+        }
+        .meet{
+            background-color:#00B4CC ;
+            border: none;
+            width: 25%;
+            height: 50px;
+            top: 22%;
+            left: 60%;
+            border-radius: 3em;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .meetbtntxt{
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 20PX;
         }
     </style>
 </head>
@@ -309,12 +329,13 @@
 
 
     <div class="btnbar">
-        <button class="videocall"><i class="fa fa-video-camera"></i></button>
-      <a  href="teaminfo.html">  <button class="info"><i class="fa fa-info-circle"></i></button></a>
+        <a href="videocall.html"><button class="videocall" onclick="startMeet()"><i
+                    class="fa fa-video-camera"></i></button></a>
+        <a href="teaminfo.html"> <button class="info"><i class="fa fa-info-circle"></i></button></a>
     </div>
 
     <div class="postsection">
-        </div>
+    </div>
 
     <div class="teamnamebox"></div>
 
@@ -333,6 +354,39 @@
 </body>
 <script>
     const tid = localStorage.getItem('teamid')
+    function startMeet() {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append('Authorization', `Bearer ${localStorage.getItem('token')}`);
+
+        var raw = JSON.stringify({
+            "teamId": tid,
+        });
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+        fetch("http://localhost:3000/api/v1/post/meeting/create", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                console.log(result)
+                const { data } = result;
+                if (result.message == "Post Successfully Created") {
+                    window.location.reload()
+                    window.location.href = 'videocall.html';
+
+                }
+                else {
+                    alert(result.message)
+                }
+
+            })
+            .catch(error => console.log('error', error));
+
+    }
+
     function loadTeam() {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -348,6 +402,7 @@
             redirect: 'follow'
         };
 
+
         fetch("http://localhost:3000/api/v1/team/details/fetch", requestOptions)
             .then(response => response.json())
             .then(result => {
@@ -362,7 +417,7 @@
 
                     const name = result.team.teamName
                     const letter = name.charAt(0);
-                    mem.innerText= ((result.team).Users).length +' '+ 'members'
+                    mem.innerText = ((result.team).Users).length + ' ' + 'members'
 
                     const txt = document.createElement("p")
                     const txt2 = document.createElement("p")
@@ -384,29 +439,62 @@
 
                     let postcontainer = document.querySelector('.postsection')
                     for (let i = 0; i < ((result.team).Posts).length; i++) {
-                        const postdiv = document.createElement("div")
-                        const posttxt = document.createElement("p")
-                        const deletebtn = document.createElement("button")
-                        const deletebtntxt = document.createElement("p")
-                        
-
-                        posttxt.innerText = ((result.team).Posts[i]).postContent
-                        deletebtntxt.innerText = "x"
+                        if (((result.team).Posts[i]).isMeeting == false) {
+                            const postdiv = document.createElement("div")
+                            const posttxt = document.createElement("p")
+                            const deletebtn = document.createElement("button")
+                            const deletebtntxt = document.createElement("p")
 
 
-                        postdiv.classList.add('postdiv')
-                        posttxt.classList.add('posttxt')
-                        deletebtn.classList.add('deletebtn')
-                        deletebtntxt.classList.add('deletebtntxt')
+                            posttxt.innerText = ((result.team).Posts[i]).postContent
+                            deletebtntxt.innerText = "x"
 
-                        deletebtn.onclick = () => deletepost(((result.team).Posts[i]).postId)
 
-                        deletebtn.appendChild(deletebtntxt)
-                        postdiv.appendChild(posttxt)
-                        postdiv.appendChild(deletebtn)
-                        postcontainer.appendChild(postdiv)
+                            postdiv.classList.add('postdiv')
+                            posttxt.classList.add('posttxt')
+                            deletebtn.classList.add('deletebtn')
+                            deletebtntxt.classList.add('deletebtntxt')
 
+                            deletebtn.onclick = () => deletepost(((result.team).Posts[i]).postId)
+
+                            deletebtn.appendChild(deletebtntxt)
+                            postdiv.appendChild(posttxt)
+                            postdiv.appendChild(deletebtn)
+                            postcontainer.appendChild(postdiv)
+
+                        }
+                        else {
+                            const postdiv = document.createElement("div")
+                            const posttxt = document.createElement("p")
+                            const deletebtn = document.createElement("button")
+                            const deletebtntxt = document.createElement("p")
+                            const meet = document.createElement("button")
+                            const meetbtntxt = document.createElement("p")
+
+                            posttxt.innerText = ((result.team).Posts[i]).postContent
+                            deletebtntxt.innerText = "x"
+                            meetbtntxt.innerText = "Go to the meeting"
+
+                            meet.classList.add('meet')
+                            meetbtntxt.classList.add('meetbtntxt')
+                            postdiv.classList.add('postdiv')
+                            posttxt.classList.add('posttxt')
+                            deletebtn.classList.add('deletebtn')
+                            deletebtntxt.classList.add('deletebtntxt')
+
+                            deletebtn.onclick = () => deletepost(((result.team).Posts[i]).postId)
+
+                            meet.appendChild(meetbtntxt)
+                            deletebtn.appendChild(deletebtntxt)
+                            postdiv.appendChild(meet)
+                            postdiv.appendChild(posttxt)
+                            postdiv.appendChild(deletebtn)
+                            postcontainer.appendChild(postdiv)
+
+
+                        }
                     }
+                    postcontainer.appendChild(document.createElement("br"))
                     postcontainer.appendChild(document.createElement("br"))
                     postcontainer.appendChild(document.createElement("br"))
                     postcontainer.appendChild(document.createElement("br"))
