@@ -365,7 +365,12 @@
                     console.log(result)
                     const { jwt, data } = result;
                     localStorage.setItem("token", jwt);
-                    alert(result.message)
+                    if(result.message == "User Created"){
+                        window.location.href = 'home.html'
+                    }
+                    else{
+                        alert(result.message)
+                    }
 
                 })
                 .catch(error => console.log('error', error));
