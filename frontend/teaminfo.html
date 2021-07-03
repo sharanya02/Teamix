@@ -46,7 +46,7 @@
             transition: transform 80ms ease-in;
             top: 20px;
             left:20px;
-            position: fixed;
+            position: absolute;
         }
 
         .back:active {
@@ -61,14 +61,89 @@
             background-color: transparent;
             border-color: #FFFFFF;
         }
+        .member{
+            position: fixed;
+            top: 180px;
+            background-color: rgb(255, 255, 255);
+            width: 50%;
+            height: 100%;
+            
+        }
+        .memblock{
+            background-color: rgb(255, 255, 255);
+            left:10%;
+            top:30%;
+            width: 90%;
+            height: 8%;
+            margin: 2em;
+            border-radius: 2em;
+            box-shadow: 1px 5px 7px #acafb1;
+        }
+        .mem{
+            position: absolute;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            color: black;
+            font-size: 25px;
+            letter-spacing: 1.5px;
+            padding-left: 30px;
+        }
+        .host{
+            position: absolute;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            color: #00B4CC;
+            font-size: 25px;
+            left: 50%;
+            top: 33px;
 
+        }
+        .heading{
+            position: absolute;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            color: #424242;
+            font-size: 40px;
+            left: 37%;
+            top: 10px;
+        }
+        .membhead{
+            position: absolute;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            color: #00B4CC;
+            font-size: 27px;
+            left: 16%;
+            top: 100px;
+        }
+        .del{
+             position: absolute;
+             left:85%;
+             background-color: rgb(255, 255, 255);
+             border: none;
+             width: 60px;
+             height: 60px;
+             border-radius: 4em;
+             
+             
+        }
+        .deltxt{
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            color: #2f2f2f;
+            font-size: 25px;
+        }
+        
     </style>
 </head>
-<body>
+<body onload="loadTeam()">
     <a  href="teampage.html">  <button class = "back"><i class="fa fa-info-circle"></i> back</button></a>
+    <p class = 'heading'> Team Information </p>
+    <p class='membhead'>Team Members</p>
     <svg height="100" width="1800">
         <line x1="15" y1="100" x2="1815" y2="100" style="stroke:#C4C4C4;stroke-width:1.5" />
     </svg>
+    <div class ="member"></div>
     <footer>
         <p>
             Created by
@@ -76,4 +151,78 @@
         </p>
     </footer>
 </body>
+<script>
+    const tid = localStorage.getItem('teamid')
+    function loadTeam() {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append('Authorization', `Bearer ${localStorage.getItem('token')}`);
+
+        var raw = JSON.stringify({
+            "teamId": tid,
+        });
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+
+        fetch("http://localhost:3000/api/v1/team/details/fetch", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                console.log(result)
+                const { data } = result;
+
+                if (result.message == "Team details fetched successfully") {
+
+                    let postcontainer = document.querySelector('.member')
+
+                    for (let i = 0; i < ((result.team).Users).length; i++) {
+                        const memblock = document.createElement("div")
+                        const mem = document.createElement("P")
+                        const del = document.createElement("button")
+                        const deltxt = document.createElement("p")
+
+                        deltxt.innerText = "x"
+                        mem.innerText = (i+1) +'.'+((result.team).Users[i]).userName
+
+                        memblock.classList.add('memblock')
+                        mem.classList.add('mem')
+                        del.classList.add('del')
+                        deltxt.classList.add('deltxt')
+
+                        del.appendChild(deltxt)
+                        memblock.appendChild(mem)
+                        memblock.appendChild(del)
+
+                        // deletebtn.onclick = () => deleteuser(((result.team).Users[i]).userId)
+
+                        if((((result.team).Users[i]).User_Teams).isHost == true){
+                            const host = document.createElement("p")
+                            host.innerText = '(HOST)'
+
+                            host.classList.add("host")
+
+                            memblock.appendChild(host)
+                        }
+
+                        postcontainer.appendChild(memblock)
+                        
+                }
+            }
+                else {
+                    alert(result.message)
+                }
+
+
+
+            })
+            .catch(error => console.log('error', error));
+
+
+
+    }
+</script>
 </html>
