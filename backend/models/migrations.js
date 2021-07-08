@@ -8,6 +8,7 @@ exports.migrations = async () => {
     User.belongsToMany(Team, { through: UserTeams })
     Team.belongsToMany(User, { through: UserTeams })
     User.hasMany(Post, { foreignKey: 'userId' })
+    Post.belongsTo(User, {foreignKey: 'userId'})
     Team.hasMany(Post, { foreignKey: 'teamId' })
 
     await Team.sync({ alter: true })

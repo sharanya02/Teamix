@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+        /* Style the sidebar - fixed full height */
+        .sidebar {
+            height: 100%;
+            width: 80px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #00B4CC;
+            overflow-x: hidden;
+            padding-top: 16px;
+            align-content: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Style sidebar links */
+        .sidebar a {
+            padding: 12px 8px 12px 15px;
+            text-decoration: none;
+            font-size: 35px;
+            color: white;
+            display: block;
+        }
+
+        /* Style links on mouse-over */
+        .sidebar a:hover {
+            color: rgb(80, 80, 80);
+        }
+
+        /* Style the main content */
+        .main {
+            margin-left: 160px;
+            /* Same as the width of the sidenav */
+            padding: 0px 10px;
+        }
+
+        /* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+            .sidebar a {
+                font-size: 18px;
+            }
+        }
+
+        body {
+            background-color: #f6f5f7;
+        }
+
+        footer {
+            background-color: #222;
+            color: #fff;
+            font-size: 14px;
+            bottom: 0;
+            position: fixed;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 999;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        footer i {
+            color: red;
+        }
+
+        footer a {
+            color: #3c97bf;
+            text-decoration: none;
+        }
+
+        .box {
+            position: absolute;
+            width: 40%;
+            height: 50%;
+            left: 30%;
+            top: 20%;
+            background-color: #f6f5f7;
+            box-shadow: 0px 5px 10px #acafb1;
+        }
+
+
+
+        .name {
+            padding-left: 50px;
+            font-size: 30px;
+            position: fixed;
+            padding-top: 0px;
+            top: 28%;
+            left: 40%;
+            font-family: 'Montserrat', sans-serif;
+            color: #646363;
+            letter-spacing: 1px;
+        }
+
+        .emailid {
+            padding-left: 50px;
+            font-size: 30px;
+            position: fixed;
+            padding-top: 0px;
+            top: 43%;
+            left: 40%;
+            font-family: 'Montserrat', sans-serif;
+            color: #646363;
+            letter-spacing: 1px;
+        }
+
+        .teamno {
+            padding-left: 50px;
+            font-size: 30px;
+            position: fixed;
+            padding-top: 0px;
+            top: 58%;
+            left: 50%;
+            font-family: 'Montserrat', sans-serif;
+            color: #646363;
+            letter-spacing: 1px;
+        }
+
+        .round {
+            background-color: #00B4CC;
+            position: absolute;
+            width: 7%;
+            height: 13%;
+            border-radius: 16em;
+            top: 14%;
+            left: 47%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .roundtxt {
+            position: absolute;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .section {
+            width: 100%;
+            height: 100%;
+        }
+
+        .acc1 {
+            position: absolute;
+            color: #00B4CC;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 30px;
+            left: 35%;
+            top: 28%;
+        }
+
+        .acc2 {
+            position: absolute;
+            color: #00B4CC;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 30px;
+            left: 35%;
+            top: 43%;
+        }
+
+        .acc3 {
+            position: absolute;
+            color: #00B4CC;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 30px;
+            left: 35%;
+            top: 58%;
+        }
+        .logout{
+            position: absolute;
+            color: #00B4CC;
+            font-family: 'Montserrat', sans-serif;
+            border: none;
+            font-weight: bold;
+            background-color: #f6f5f7 ;
+            font-size: 30px;
+            left: 90%;
+            top: 3%;
+        }
+    </style>
+</head>
+
+<body onload="loadInfo()">
+    <div class="section">
+        <div class="box"></div>
+        <a href="index.html"><button class="logout"> Logout</button></a>
+
+        <p class="acc1"> Name:</p>
+        <p class="acc2"> Email:</p>
+        <p class="acc3">Number of Teams:</p>
+    </div>
+    <!-- Load an icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <br><br><br> <br><br><br>
+        <a href="account.html"><i class="fa fa-fw fa-user"></i> </a>
+        <br><br>
+        <a href="#chat"><i class="fa fa-fw fa-wrench"></i> </a>
+        <br>
+        <br>
+        <a href="home.html"><i class="fa fa-fw fa-group"></i> </a>
+        <br>
+        <br>
+        <a href="#chat"><i class="fa fa-fw fa-wechat"></i> </a>
+        <br>
+        <br>
+    </div>
+    <footer>
+        <p>
+            Created by
+            <a target="_blank" href="https://github.com/sharanya02">Sharanya Mukherjee</a>
+        </p>
+    </footer>
+
+</body>
+<script>
+    function loadInfo() {
+        const myHeaders = new Headers()
+        myHeaders.append('Content-Type', 'application/json')
+        myHeaders.append('Authorization', `Bearer ${localStorage.getItem('token')}`)
+
+        const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            redirect: 'follow'
+        }
+        fetch('http://localhost:3000/api/v1/user/details/fetch', requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                console.log(result)
+                const { data } = result
+
+                if (result.message == 'User details fetched successfully') {
+                    const container = document.querySelector('.box')
+                    const containersec = document.querySelector('.section')
+                    const name = document.createElement("p")
+                    const emailid = document.createElement("p")
+                    const teamno = document.createElement("p")
+                    const round = document.createElement("div")
+                    const roundtxt = document.createElement("p")
+
+                    name.innerText = ((result.user).userName)
+                    emailid.innerText = ((result.user).email)
+                    teamno.innerText = ((result.user).Teams).length
+                    roundtxt.innerText = ((result.user).userName).charAt(0)
+
+                    name.classList.add('name')
+                    emailid.classList.add('emailid')
+                    teamno.classList.add('teamno')
+                    round.classList.add('round')
+                    roundtxt.classList.add('roundtxt')
+
+                    round.appendChild(roundtxt)
+                    containersec.appendChild(round)
+                    containersec.appendChild(name)
+                    containersec.appendChild(emailid)
+                    containersec.appendChild(teamno)
+                    // containersec.appendChild(container)
+                }
+                else {
+                    alert(result.message)
+                }
+            })
+            .catch(error => console.log('error', error))
+    }
+</script>
+
+</html>

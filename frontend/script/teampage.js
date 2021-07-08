@@ -91,9 +91,9 @@ function loadTeam () {
 
             posttxt.innerText = ((result.team).Posts[i]).postContent
             deletebtntxt.innerText = 'x'
-            nameuser(((result.team).Posts[i]).userId)
-            logotxt.innerText = localStorage.getItem('name')
-            logotxt2.innerText = (localStorage.getItem('name')).charAt(0)
+            logotxt.innerText =  result.team.Posts[i].User.userName
+            logotxt2.innerText = result.team.Posts[i].User.userName.charAt(0)
+
 
             like.classList.add('like')
             liketxt.classList.add('fa', 'fa-heart', 'fa-6')
@@ -134,9 +134,8 @@ function loadTeam () {
             posttxt.innerText = ((result.team).Posts[i]).postContent
             deletebtntxt.innerText = 'x'
             meetbtntxt.innerText = 'Go to the meeting'
-            nameuser(((result.team).Posts[i]).userId)
-            logotxt.innerText = localStorage.getItem('name')
-            logotxt2.innerText = (localStorage.getItem('name')).charAt(0)
+            logotxt.innerText =  result.team.Posts[i].User.userName
+            logotxt2.innerText = result.team.Posts[i].User.userName.charAt(0)
 
             logo2.classList.add('logot')
             logotxt2.classList.add('logotxtw')
@@ -172,38 +171,6 @@ function loadTeam () {
         postcontainer.appendChild(document.createElement('br'))
         postcontainer.appendChild(document.createElement('br'))
         postcontainer.appendChild(document.createElement('br'))
-      } else {
-        alert(result.message)
-      }
-    })
-    .catch(error => console.log('error', error))
-}
-function nameuser (id) {
-  const myHeaders = new Headers()
-  myHeaders.append('Content-Type', 'application/json')
-  myHeaders.append('Authorization', `Bearer ${localStorage.getItem('token')}`)
-
-  const raw = JSON.stringify({
-    userId: id
-  })
-  console.log(raw)
-  const requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: raw,
-    redirect: 'follow'
-  }
-
-  fetch('http://localhost:3000/api/v1/user/details/fetch', requestOptions)
-    .then(response => response.json())
-    .then(result => {
-      console.log(result)
-      const { data } = result
-      console.log((result.user).userName)
-      if (result.message == 'User details fetched successfully') {
-        const nm = ((result.user).userName)
-        localStorage.removeItem('name')
-        localStorage.setItem('name', nm)
       } else {
         alert(result.message)
       }

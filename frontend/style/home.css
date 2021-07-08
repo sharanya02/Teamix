@@ -11,6 +11,9 @@
     background-color: #00B4CC;
     overflow-x: hidden;
     padding-top: 16px;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Style sidebar links */
@@ -24,7 +27,7 @@
 
 /* Style links on mouse-over */
 .sidebar a:hover {
-    color: black;
+    color: rgb(80, 80, 80);
 }
 
 /* Style the main content */
@@ -68,6 +71,7 @@ body {
 
 .searchTerm:focus {
     color: #00B4CC;
+    
 }
 
 .searchButton {
@@ -112,11 +116,11 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 17px;
+    font-size: 15px;
     margin: 20px 20px;
     top: 90px;
     position: absolute;
-    right: 50px;
+    right: 55px;
     box-shadow: 2px 2px 5px #aaaaaa;
 }
 
@@ -129,11 +133,11 @@ body {
     position: relative;
     width: 320px;
     height: 300px;
-    left: 180px;
+    left: 150px;
     top: 20px;
     background-color: white;
-    box-shadow: 0px 5px 10px #acafb1;
-    margin: 0 6em 6em 0;
+    box-shadow: 0px 3px 7px #acafb1;
+    margin: 0 6.5em 6.5em 0;
 
 
 
@@ -142,11 +146,11 @@ body {
 .deleteTeam {
     background-color: white;
     position: absolute;
-    left: 75%;
+    left: 80%;
     border: 1px solid #ffffff;
-    width: 60px;
-    height: 60px;
-    top: 10px;
+    width: 50px;
+    height: 30px;
+    top: 0px;
     transition: transform 80ms ease-in;
 
 }
@@ -157,12 +161,14 @@ body {
     font-weight: bold;
     color: #424242;
     top: 0px;
+    
 }
 
 .teamnametxt {
+    align-self: center;
     font-family: 'Montserrat', sans-serif;
     font-size: 25px;
-    color: rgb(75, 75, 75);
+    color: rgb(105, 104, 104);
     font-weight: bold;
     letter-spacing: 1px;
     left: 40%;

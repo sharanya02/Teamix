@@ -3,6 +3,7 @@ const uuid4 = require('uuid4')
 const Team = require('../models/teams')
 const User = require('../models/users')
 const UserTeams = require('../models/userTeam')
+const Post = require('../models/posts')
 
 class TeamController {
   static async createTeam (userId, teamName) {
@@ -230,6 +231,12 @@ class TeamController {
           [
             {
               all: true
+            },
+            {
+              model: Post,
+              include: [
+                User
+              ]
             }
           ]
       }
