@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/index.css">
+</head>
+
+<body>
+    <h2>Microsoft Engage 2021</h2>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form>
+                <h1>Create Account</h1>
+                <br><br>
+                <span>or use your email for registration</span>
+                <input id="name-signup" type="text" placeholder="Name" required />
+                <input id="email-signup" type="email" placeholder="Email" required />
+                <input id="password-signup" type="password" placeholder="Password" required />
+                <br><br>
+                <button id="signup-button">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form>
+                <h1>Sign in</h1>
+                <br><br>
+                <span>or use your account</span>
+                <input id="email-login" type="email" placeholder="Email" required />
+                <input id="password-login" type="password" placeholder="Password" required />
+                <a href="#">Forgot your password?</a>
+                <button id="login-button">Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To continue please enter your info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello!</h1>
+                    <p>This is a teams clone made by sharanya</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>
+            Created by
+            <a target="_blank" href="https://github.com/sharanya02">Sharanya Mukherjee</a>
+        </p>
+    </footer>
+
+    <script src="../script/index.js"></script>
+
+</body>
+
+</html>

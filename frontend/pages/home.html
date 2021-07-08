@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/home.css">
+</head>
+
+<body onload="loadTeam()">
+    <!-- Load an icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <br><br><br> <br><br><br>
+        <a href="index.html"><i class="fa fa-fw fa-user"></i> </a>
+        <br><br>
+        <a href="#chat"><i class="fa fa-fw fa-wrench"></i> </a>
+        <br>
+        <br>
+        <a href="#clients"><i class="fa fa-fw fa-group"></i> </a>
+        <br>
+        <br>
+        <a href="chat/public/index.html"><i class="fa fa-fw fa-wechat"></i> </a>
+        <br>
+        <br>
+    </div>
+    <div class="wrap">
+        <div class="search">
+            <input type="text" class="searchTerm" placeholder="What are you looking for?">
+            <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </div>
+    <a href='jointeam.html'><button class="btn"><i class="fa fa-group"></i> Create or Join a Team</button></a>
+    <div class="yourteam">
+        Your Teams
+    </div>
+    <svg height="170" width="1800">
+        <line x1="150" y1="170" x2="1770" y2="170" style="stroke:#C4C4C4;stroke-width:1.5" />
+    </svg>
+    <div class="container">
+
+    </div>
+    <div class="chatbot">
+        <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+        <df-messenger
+            chat-icon="https:&#x2F;&#x2F;icon-library.com&#x2F;images&#x2F;chatbot-icon&#x2F;chatbot-icon-4.jpg"
+            intent="WELCOME" chat-title="engage" agent-id="f04fa180-8ef5-4b94-8691-f859985b2203" language-code="en">
+        </df-messenger>
+    </div>
+
+</body>
+<script src="../script/home.js"></script>
+
+</html>

@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+footer {
+   background-color: #222;
+   color: #fff;
+   font-size: 14px;
+   bottom: 0;
+   position: fixed;
+   left: 0;
+   right: 0;
+   text-align: center;
+   z-index: 999;
+}
+
+footer p {
+   margin: 10px 0;
+}
+
+footer i {
+   color: red;
+}
+
+footer a {
+   color: #3c97bf;
+   text-decoration: none;
+}
+.back {
+   border-radius: 20px;
+   border: 1px solid #00B4CC;
+   background-color: #00B4CC;
+   color: #FFFFFF;
+   font-size: 17px;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: bold;
+   padding: 12px 45px;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   transition: transform 80ms ease-in;
+   top: 20px;
+   left:20px;
+   position: absolute;
+}
+
+.back:active {
+   transform: scale(0.95);
+}
+
+.back:focus {
+   outline: none;
+}
+
+.back.ghost {
+   background-color: transparent;
+   border-color: #FFFFFF;
+}
+.member{
+   position: fixed;
+   top: 180px;
+   background-color: #f6f5f7;
+   width: 50%;
+   height: 100%;
+   
+}
+.memblock{
+   background-color: rgb(255, 255, 255);
+   left:10%;
+   top:30%;
+   width: 90%;
+   height: 8%;
+   margin: 2em;
+   border-radius: 2em;
+   box-shadow: 1px 5px 7px #acafb1;
+}
+.mem{
+   position: absolute;
+   font-family: 'Montserrat', sans-serif;
+   /* font-weight: bold; */
+   color: black;
+   font-size: 25px;
+   letter-spacing: 1.5px;
+   padding-left: 30px;
+}
+.host{
+   position: absolute;
+   font-family: 'Montserrat', sans-serif;
+   /* font-weight: bold; */
+   color: #00B4CC;
+   font-size: 25px;
+   left: 50%;
+   top: 33px;
+
+}
+.heading{
+   position: absolute;
+   font-family: 'Montserrat', sans-serif;
+   /* font-weight: bold; */
+   color: #424242;
+   font-size: 40px;
+   left: 37%;
+   top: 10px;
+}
+.membhead{
+   position: absolute;
+   font-family: 'Montserrat', sans-serif;
+   /* font-weight: bold; */
+   color: #00B4CC;
+   font-size: 27px;
+   left:40px;
+   top: 120px;
+}
+.del{
+    position: absolute;
+    left:85%;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 4em;
+    
+    
+}
+.deltxt{
+   font-family: 'Montserrat', sans-serif;
+   font-weight: bold;
+   color: #2f2f2f;
+   font-size: 25px;
+}
+img{
+   position: absolute;
+   width: 700px;
+   height: 500px;
+   left: 55%;
+   top: 15%;
+   
+}
+body {
+   background-color: #f6f5f7;
+}
+.tid{
+   left: 73em;
+   top:50%;
+   position: absolute;
+   width: 50%;
+   height: 40px;
+   background-color: rgb(255, 255, 255);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   box-shadow: 1px 5px 7px #acafb1;
+   border-radius: 2em;
+}
+.tidtxt{
+   font-family: 'Montserrat', sans-serif;
+   font-weight: bold;
+   color: #2f2f2f;
+   font-size: 15px;
+}
+.teamid{
+   left: 54em;
+   top:60%;
+   position: absolute;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: bold;
+   color: #00B4CC;
+   font-size: 25px;
+}
+.tt{
+   position: absolute;
+   font-family: 'Montserrat', sans-serif;
+   color: #2f2f2f;
+   font-size: 17px; 
+   
+}
+.teamtext{
+   position: absolute;
+   left: 77em;
+   width: 22%;
+   top:75%;
+   
+}

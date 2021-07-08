@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/jointeam.css">
+</head>
+
+<body>
+    <a href='home.html'><button class="backbtn"><i class="fa fa-fw fa-step-backward"></i>Back</button></a>
+    <div class="container" id="container">
+        <div class="form-container team-create-container">
+            <form>
+                <h1>Create A Team</h1>
+                <br><br>
+                <input id="name-create" type="text" placeholder="Team Name" required />
+                <br><br>
+                <button id="create-button">Create</button>
+            </form>
+        </div>
+        <div class="form-container team-join-container">
+            <form>
+                <h1>Join a Team</h1>
+                <br><br>
+                <input id="teamId" type="text" placeholder="Team ID" required /><br><br>
+                <button id="join-button">Join</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h2>Collaborate with a group of people based on project, initiative, or common interest.</h2>
+                    <br>
+                    <button class="ghost" id="joinTeam">Join a team</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h2>Join a team by entering team ID</h2>
+                    <br>
+                    <button class="ghost" id="createTeam">Create a Team</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            Created by
+            <a target="_blank" href="https://github.com/sharanya02">Sharanya Mukherjee</a>
+        </p>
+    </footer>
+
+    <script src="../script/jointeam.js"></script>
+
+</body>
+
+</html>

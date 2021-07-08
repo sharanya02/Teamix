@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+/* Style the sidebar - fixed full height */
+.sidebar {
+    height: 100%;
+    width: 80px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #00B4CC;
+    overflow-x: hidden;
+    padding-top: 16px;
+}
+
+/* Style sidebar links */
+.sidebar a {
+    padding: 12px 8px 12px 15px;
+    text-decoration: none;
+    font-size: 35px;
+    color: white;
+    display: block;
+}
+
+.teamnamebox {
+    height: 100px;
+    width: 100px;
+    left: 200px;
+    top: 100px;
+    background-color: #00B4CC;
+    position: fixed;
+    z-index: 1;
+}
+
+.teamsbar {
+    height: 100%;
+    width: 350px;
+    left: 80px;
+    background-color: white;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    box-shadow: 0px 5px 10px #acafb1;
+}
+
+/* Style links on mouse-over */
+.sidebar a:hover {
+    color: black;
+}
+
+/* Style the main content */
+.main {
+    margin-left: 160px;
+    /* Same as the width of the sidenav */
+    padding: 0px 10px;
+}
+
+/* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+
+    .sidebar a {
+        font-size: 18px;
+    }
+}
+
+body {
+    background-color: #f6f5f7;
+}
+
+footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer i {
+    color: red;
+}
+
+footer a {
+    color: #3c97bf;
+    text-decoration: none;
+}
+
+.teamnametxt {
+    padding-left: 38px;
+    font-size: 30px;
+    position: absolute;
+    padding-top: 5px;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff8f8;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.teamtxt {
+    padding-left: 120px;
+    font-size: 30px;
+    position: absolute;
+    padding-top: 220px;
+    font-family: 'Montserrat', sans-serif;
+    color: #424242;
+    letter-spacing: 1px;
+    font-weight: bold;
+
+}
+
+.postdiv {
+    flex-direction: column;
+    position: relative;
+    background-color: rgb(235, 235, 235);
+    left: 600px;
+    /* margin: 1em 0em; */
+    width: 1100px;
+    height: 110px;
+    display: flex;
+    box-shadow: 2px 2px 5px #aaaaaa;
+
+
+}
+
+.posttxt {
+    /* padding-left: 100px; */
+    font-size: 18px;
+    position: absolute;
+    /* padding-top: 220px; */
+    font-family: 'Montserrat', sans-serif;
+    color: #424242;
+    letter-spacing: 1px;
+    font-weight: normal;
+    padding-left: 40px;
+    top: 40px;
+    /* left: 20%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.postsubmit {
+    background-color: #00B4CC;
+    border: none;
+    color: rgb(255, 255, 255);
+    letter-spacing: 1.5px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 2em;
+    padding: 15px;
+    width: 9%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    margin: 20px 20px;
+    top: 87%;
+    position: fixed;
+    right: 45px;
+    box-shadow: 2px 2px 5px #aaaaaa;
+
+}
+
+.postsection {
+    position: absolute;
+    top: 50%;
+
+}
+
+.deletebtn {
+    background-color: rgb(228, 227, 227);
+    border: none;
+    width: 3%;
+    font-size: 17px;
+    top: 0px;
+    position: absolute;
+    right: 10px;
+
+}
+
+.deletebtntxt {
+    color: #424242;
+    letter-spacing: 1.5px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+}
+
+input {
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: none;
+    width: 13000px;
+    height: 120px;
+    left: 430px;
+    font-family: 'Montserrat', sans-serif;
+    color: #2a2a2a;
+    letter-spacing: 1px;
+    font-size: 20px;
+    padding-left: 40px;
+    padding-top: 0%;
+    bottom: 25px;
+    flex-direction: column;
+    display: flex;
+    box-shadow: 0px 5px 10px #acafb1;
+}
+
+img {
+    padding-left: 43%;
+    width: 600px;
+    height: 470px;
+}
+
+.btnbar {
+    position: absolute;
+    left: 85%;
+    top: 20px;
+    width: 200px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.videocall {
+    font-family: 'Montserrat', sans-serif;
+    color: #00B4CC;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 40px;
+    border: none;
+    background-color: #f6f5f7;
+
+}
+
+.info {
+    margin-left: 1em;
+    font-family: 'Montserrat', sans-serif;
+    color: #00B4CC;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 40px;
+    border: none;
+    background-color: #f6f5f7;
+
+}
+
+.member {
+    font-family: 'Montserrat', sans-serif;
+    color: #909090;
+    letter-spacing: 1px;
+    /* font-weight: bold; */
+    font-size: 20px;
+    left: 10%;
+    top: 30%;
+    position: fixed;
+}
+.meet{
+    background-color:#00B4CC ;
+    border: none;
+    width: 20%;
+    height: 50px;
+    top: 26%;
+    left: 65%;
+    border-radius: 3em;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.meetbtntxt{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 17PX;
+}
+.logo{
+    position: absolute;
+    left:40px;
+}
+.logotxt{
+    font-family: 'Montserrat', sans-serif;
+    /* font-weight: bold; */
+    font-size: 18PX;
+    color: #00B4CC;
+}
+.logot{
+    position: relative;
+    background-color: #00B4CC;
+    width: 70px;
+    height: 70px;
+    border-radius: 3em;
+    left:47%;
+    top: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+}
+.logotxtw{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 25PX;
+    color: #ffffff;
+
+}
+.like{
+    position: relative;
+    width: 5%;
+    border: none;
+    left: 90%;
+    top: 14%;
+    background-color: rgb(235, 235, 235);
+}
+.liketxt{
+    border:none;
+    color: violet;
+}

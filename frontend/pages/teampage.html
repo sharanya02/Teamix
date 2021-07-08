@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/teampage.css">
+</head>
+
+<body onload="loadTeam()">
+    <!-- Load an icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <svg height="80" width="1800">
+        <line x1="480" y1="80" x2="1750" y2="80" style="stroke:#C4C4C4;stroke-width:1.5" />
+    </svg>
+    <img src="../media/img.png" alt="img">
+
+    <!-- Sidebar for teams -->
+    <div class="teamsbar"></div>
+
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <br><br><br> <br><br><br>
+        <a href="#teams"><i class="fa fa-fw fa-user"></i> </a>
+        <br><br>
+        <a href="#chat"><i class="fa fa-fw fa-wrench"></i> </a>
+        <br>
+        <br>
+        <a href="home.html"><i class="fa fa-fw fa-group"></i> </a>
+        <br>
+        <br>
+        <a href="#contact"><i class="fa fa-fw fa-wechat"></i> </a>
+        <br>
+        <br>
+    </div>
+
+
+    <div class="btnbar">
+        <a href="videocall.html"><button class="videocall" onclick="startMeet()"><i
+                    class="fa fa-video-camera"></i></button></a>
+        <a href="teaminfo.html"> <button class="info"><i class="fa fa-info-circle"></i></button></a>
+    </div>
+
+    <div class="postsection">
+    </div>
+
+    <div class="teamnamebox"></div>
+
+    <input id="postcont" type="text" placeholder="Start a conversation!" required /><br><br>
+
+    <button class="postsubmit" onclick="enterpost()"><i class="fa fa-forward"></i> Post!</button>
+    <footer>
+        <p>
+            Created by
+            <a target="_blank" href="https://github.com/sharanya02">Sharanya Mukherjee</a>
+        </p>
+    </footer>
+
+
+
+</body>
+<script src="../script/teampage.js"></script>
+
+</html>
