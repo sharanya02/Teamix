@@ -67,6 +67,7 @@ login.addEventListener('click', (e) => {
       console.log(result)
       const { jwt, data } = result
       localStorage.setItem('token', jwt)
+      localStorage.setItem('id', result.data.userId)
       if (result.message == 'User Logged In') {
         window.location.href = 'home.html'
       } else {
