@@ -51,7 +51,6 @@ function loadTeam () {
           memblock.appendChild(mem)
           memblock.appendChild(del)
 
-          // deletebtn.onclick = () => deleteuser(((result.team).Users[i]).userId)
 
           if ((((result.team).Users[i]).User_Teams).isHost == true) {
             const host = document.createElement('p')

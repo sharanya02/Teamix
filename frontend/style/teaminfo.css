@@ -36,7 +36,7 @@ footer a {
    letter-spacing: 1px;
    text-transform: uppercase;
    transition: transform 80ms ease-in;
-   top: 20px;
+   top: 30px;
    left:20px;
    position: absolute;
 }
@@ -127,9 +127,9 @@ footer a {
 }
 img{
    position: absolute;
-   width: 700px;
-   height: 500px;
-   left: 55%;
+   width: 600px;
+   height: 360px;
+   left: 60%;
    top: 15%;
    
 }
