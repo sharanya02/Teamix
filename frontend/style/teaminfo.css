@@ -54,7 +54,7 @@ footer a {
    border-color: #FFFFFF;
 }
 .member{
-   position: fixed;
+   position: absolute;
    top: 180px;
    background-color: #f6f5f7;
    width: 50%;

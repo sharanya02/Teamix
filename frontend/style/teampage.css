@@ -223,6 +223,7 @@ img {
     padding-left: 43%;
     width: 600px;
     height: 470px;
+    position: relative;
 }
 
 .btnbar {
