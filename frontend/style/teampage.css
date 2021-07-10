@@ -1,5 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
+html{
+    scroll-behavior: smooth;
+}
+.scrolltop{
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #00B4CC;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: large;
+    cursor: pointer;
+}
+.scrolltop:hover{
+    background-color: #007888;
+}
 /* Style the sidebar - fixed full height */
 .sidebar {
     height: 100%;

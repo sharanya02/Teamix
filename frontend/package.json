@@ -1,7 +1,7 @@
 {
   "name": "engage",
   "version": "1.0.0",
-  "description": "",
+  "description": "a teams clone for microsoft engage mentorship program",
   "main": "index.js",
   "scripts": {
     "electron": "electron .",
@@ -14,20 +14,10 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.0.2",
-    "socket.io": "^4.1.2"
+    "socket.io": "^4.1.2",
+    "electron": "^13.1.2"
   },
   "devDependencies": {
-    "electron-builder": "^22.11.7",
-    "electron": "^13.1.2",
     "standard": "^16.0.3"
-  },
-  "build": {
-    "appId": "com.electron.engage",
-    "productName":"engage app",
-    "target":"deb",
-    "directory": {
-      "output":"build"
-    },
-    "icon":"media/icon.png"
   }
 }

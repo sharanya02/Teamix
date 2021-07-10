@@ -46,7 +46,6 @@ function loadTeam () {
           newDiv.appendChild(deleteTeam)
           newDiv.appendChild(txt)
           container.appendChild(newDiv)
-
         }
       } else {
         alert(result.message)

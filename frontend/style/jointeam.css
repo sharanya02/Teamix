@@ -3,7 +3,17 @@
 * {
     box-sizing: border-box;
 }
-
+.copybtn{
+    position: absolute;
+    left:83%;
+    width: 30px;
+    background-color: #f6f5f7;
+    border: none;
+    color: #00B4CC;
+}
+.copybtn:active{
+    color:#333 ;
+}
 body {
     background: #f6f5f7;
     display: flex;

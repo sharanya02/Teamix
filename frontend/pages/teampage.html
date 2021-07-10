@@ -51,6 +51,7 @@
     <input id="postcont" type="text" placeholder="Start a conversation!" required /><br><br>
 
     <button class="postsubmit" onclick="enterpost()"><i class="fa fa-forward"></i> Post!</button>
+    <button class="scrolltop" onclick="topFunction()"> ^ </button>
     <footer>
         <p>
             Created by
@@ -58,9 +59,21 @@
         </p>
     </footer>
 
-
-
 </body>
 <script src="../script/teampage.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $("a").on('click', function (event){
+    if (this.hash !== "") {
+        event.preventDefault();
+        var hash = this.hash;
+        $('html,body').animate({
+            scrollTop: $(hash).offset().top
+        }, 800, function () {
+            window.location.hash = hash;
+        });
+    }
+})
+            
+</script>
 </html>

@@ -51,7 +51,6 @@ function loadTeam () {
           memblock.appendChild(mem)
           memblock.appendChild(del)
 
-
           if ((((result.team).Users[i]).User_Teams).isHost == true) {
             const host = document.createElement('p')
             host.innerText = '(HOST)'
