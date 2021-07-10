@@ -8,7 +8,7 @@ function loadInfo () {
     headers: myHeaders,
     redirect: 'follow'
   }
-  fetch('http://localhost:3000/api/v1/user/details/fetch', requestOptions)
+  fetch('https://sharanyaengage.herokuapp.com/api/v1/user/details/fetch', requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result)

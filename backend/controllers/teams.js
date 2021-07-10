@@ -136,7 +136,7 @@ class TeamController {
         }
       }
       const host = await UserTeams.findOne({ where: { UserUserId: userId } })
-      if (host.isHost === true) {
+      if (host.isHost === false) {
         return {
           error: true,
           message: 'Only host can delete a team',

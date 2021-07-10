@@ -13,7 +13,7 @@ function startMeet () {
     body: raw,
     redirect: 'follow'
   }
-  fetch('http://localhost:3000/api/v1/post/meeting/create', requestOptions)
+  fetch('https://sharanyaengage.herokuapp.com/api/v1/post/meeting/create', requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result)
@@ -43,7 +43,7 @@ function loadTeam () {
     redirect: 'follow'
   }
 
-  fetch('http://localhost:3000/api/v1/team/details/fetch', requestOptions)
+  fetch('https://sharanyaengage.herokuapp.com/api/v1/team/details/fetch', requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result)
@@ -200,7 +200,7 @@ function enterpost () {
     redirect: 'follow'
   }
 
-  fetch('http://localhost:3000/api/v1/post/create', requestOptions)
+  fetch('https://sharanyaengage.herokuapp.com/api/v1/post/create', requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result)
@@ -231,7 +231,7 @@ function deletepost (id) {
     redirect: 'follow'
   }
 
-  fetch('http://localhost:3000/api/v1/post/delete', requestOptions)
+  fetch('https://sharanyaengage.herokuapp.com/api/v1/post/delete', requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result)

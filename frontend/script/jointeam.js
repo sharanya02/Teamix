@@ -28,7 +28,7 @@ create.addEventListener('click', (e) => {
     redirect: 'follow'
   }
 
-  fetch('http://localhost:3000/api/v1/team/create', requestOptions)
+  fetch('https://sharanyaengage.herokuapp.com/api/v1/team/create', requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result)
@@ -42,7 +42,10 @@ create.addEventListener('click', (e) => {
         ti.value = (result.team).teamId
         copybtn.innerText = "copy"
 
-        copybtn.onclick = () => copy()
+        copybtn.onclick = () => {
+          const cb = navigator.clipboard;
+          cb.writeText(titxt.innerText).then(() => alert('Team ID copied'))
+        }
 
         ti.classList.add('teamid')
         titxt.classList.add('teamidtxt')
@@ -58,13 +61,6 @@ create.addEventListener('click', (e) => {
     })
     .catch(error => console.log('error', error))
 })
-
-function copy(){
-var copyText = document.getElementById("teamidtxt")
-copyText.querySelector();
-document.execCommand("copy")
-alert("copied:"+copyText.value)
-}
 join.addEventListener('click', (e) => {
   e.preventDefault()
   const myHeaders = new Headers()
@@ -82,12 +78,11 @@ join.addEventListener('click', (e) => {
     redirect: 'follow'
   }
 
-  fetch('http://localhost:3000/api/v1/team/user/join', requestOptions)
+  fetch('https://sharanyaengage.herokuapp.com/api/v1/team/user/join', requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result)
       const { data } = result
-      localStorage.setItem('token')
       if (result.message == 'Team joined successfully') {
         window.location.href = 'home.html'
       } else {

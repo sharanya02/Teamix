@@ -29,7 +29,7 @@ signup.addEventListener('click', (e) => {
     redirect: 'follow'
   }
 
-  fetch('http://localhost:3000/api/v1/user/signup', requestOptions)
+  fetch('https://sharanyaengage.herokuapp.com/api/v1/user/signup', requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result)
@@ -61,12 +61,13 @@ login.addEventListener('click', (e) => {
     redirect: 'follow'
   }
 
-  fetch('http://localhost:3000/api/v1/user/login', requestOptions)
+  fetch('https://sharanyaengage.herokuapp.com/api/v1/user/login', requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result)
       const { jwt, data } = result
       localStorage.setItem('token', jwt)
+      localStorage.removeItem('id')
       localStorage.setItem('id', result.data.userId)
       if (result.message == 'User Logged In') {
         window.location.href = 'home.html'
