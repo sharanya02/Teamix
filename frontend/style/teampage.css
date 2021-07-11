@@ -11,7 +11,7 @@ html{
     z-index: 99;
     border: none;
     outline: none;
-    background-color: #00B4CC;
+    background-color: #4A96F9;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     font-size: large;
@@ -28,7 +28,7 @@ html{
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #00B4CC;
+    background-color: #4A96F9;
     overflow-x: hidden;
     padding-top: 16px;
 }
@@ -47,7 +47,7 @@ html{
     width: 100px;
     left: 200px;
     top: 100px;
-    background-color: #00B4CC;
+    background-color: #4A96F9;
     position: fixed;
     z-index: 1;
 }
@@ -172,7 +172,7 @@ footer a {
 }
 
 .postsubmit {
-    background-color: #00B4CC;
+    background-color: #4A96F9;
     border: none;
     color: rgb(255, 255, 255);
     letter-spacing: 1.5px;
@@ -260,7 +260,7 @@ img {
 
 .videocall {
     font-family: 'Montserrat', sans-serif;
-    color: #00B4CC;
+    color: #4A96F9;
     letter-spacing: 1px;
     font-weight: bold;
     font-size: 40px;
@@ -272,7 +272,7 @@ img {
 .info {
     margin-left: 1em;
     font-family: 'Montserrat', sans-serif;
-    color: #00B4CC;
+    color: #4A96F9;
     letter-spacing: 1px;
     font-weight: bold;
     font-size: 40px;
@@ -292,7 +292,7 @@ img {
     position: fixed;
 }
 .meet{
-    background-color:#00B4CC ;
+    background-color:#4A96F9 ;
     border: none;
     width: 20%;
     height: 50px;
@@ -318,11 +318,11 @@ img {
     font-family: 'Montserrat', sans-serif;
     /* font-weight: bold; */
     font-size: 18PX;
-    color: #00B4CC;
+    color: #4A96F9;
 }
 .logot{
     position: relative;
-    background-color: #00B4CC;
+    background-color: #4A96F9;
     width: 70px;
     height: 70px;
     border-radius: 3em;

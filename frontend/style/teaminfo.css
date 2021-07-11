@@ -26,8 +26,8 @@ footer a {
 }
 .back {
    border-radius: 20px;
-   border: 1px solid #00B4CC;
-   background-color: #00B4CC;
+   border: 1px solid #4A96F9;
+   background-color: #4A96F9;
    color: #FFFFFF;
    font-size: 17px;
    font-family: 'Montserrat', sans-serif;
@@ -84,7 +84,7 @@ footer a {
    position: absolute;
    font-family: 'Montserrat', sans-serif;
    /* font-weight: bold; */
-   color: #00B4CC;
+   color: #4A96F9;
    font-size: 25px;
    left: 50%;
    top: 33px;
@@ -103,7 +103,7 @@ footer a {
    position: absolute;
    font-family: 'Montserrat', sans-serif;
    /* font-weight: bold; */
-   color: #00B4CC;
+   color: #4A96F9;
    font-size: 27px;
    left:40px;
    top: 120px;
@@ -161,7 +161,7 @@ body {
    position: absolute;
    font-family: 'Montserrat', sans-serif;
    font-weight: bold;
-   color: #00B4CC;
+   color: #4A96F9;
    font-size: 25px;
 }
 .tt{

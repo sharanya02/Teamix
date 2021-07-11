@@ -6,5 +6,5 @@ const { app, BrowserWindow } = electron
 
 app.on('ready', () => {
   const mainWindow = new BrowserWindow({ width: 1200, height: 900, icon: nativeImage.createFromPath(__dirname + 'media/icon.png') })
-  mainWindow.loadFile(path.join(__dirname, 'pages/index.html'))
+  mainWindow.loadFile(path.join(__dirname, 'pages/landing.html'))
 })

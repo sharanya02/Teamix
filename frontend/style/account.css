@@ -8,7 +8,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #00B4CC;
+    background-color: #4A96F9;
     overflow-x: hidden;
     padding-top: 16px;
     align-content: center;
@@ -126,7 +126,7 @@ footer a {
 }
 
 .round {
-    background-color: #00B4CC;
+    background-color: #4A96F9;
     position: absolute;
     width: 7%;
     height: 13%;
@@ -153,7 +153,7 @@ footer a {
 
 .acc1 {
     position: absolute;
-    color: #00B4CC;
+    color: #4A96F9;
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
     left: 35%;
@@ -162,7 +162,7 @@ footer a {
 
 .acc2 {
     position: absolute;
-    color: #00B4CC;
+    color: #4A96F9;
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
     left: 35%;
@@ -171,7 +171,7 @@ footer a {
 
 .acc3 {
     position: absolute;
-    color: #00B4CC;
+    color: #4A96F9;
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
     left: 35%;
@@ -179,7 +179,7 @@ footer a {
 }
 .logout{
     position: absolute;
-    color: #00B4CC;
+    color: #4A96F9;
     font-family: 'Montserrat', sans-serif;
     border: none;
     font-weight: bold;
