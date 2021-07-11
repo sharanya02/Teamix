@@ -38,18 +38,18 @@ Keeping these in mind, introducing to you `Teamix`
 <br/>
 
 ## Installation
-- To run development server, first *cd into the backend directory* then run -
-bash
+- To run development server, first **cd into the backend directory** then run -
+```bash
 npm run dev
-
-- To run electron app, cd into the *frontend directory* then run -
-bash
+```
+- To run electron app, cd into the **frontend directory** then run -
+```bash
 npm run electron
-
+```
 - To lint code
-bash
+```bash
 npm run lint
-
+```
 <br/>
 
 
