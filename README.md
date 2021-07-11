@@ -2,8 +2,9 @@
 <a href="https://microsoft.acehacker.com/engage2021/">
 	<img src="https://github.com/sharanya02/engage21/blob/main/media/miceng.png?raw=true" alt="Engage 21"/>
 </a>
-	<h2 align="center"> Microsoft Teams Clone </h2>
-	<h4 align="center"> A fully functional clone of microsoft teams made using Agile development methodologies, as a part of the Microsoft Engage 2021 program. <h4>
+	<h2 align="center"> Teamix </h2>
+	<h4 align="center"> An effortless communication solution to collaborate with your team remotely!<h4>
+	
 </p>
 
 ---
@@ -11,14 +12,46 @@
 [![DOCS](https://img.shields.io/badge/Documentation-see%20docs-green?style=flat-square&logo=appveyor)](INSERT_LINK_FOR_DOCS_HERE) 
   [![UI ](https://img.shields.io/badge/User%20Interface-Link%20to%20UI-orange?style=flat-square&logo=appveyor)](https://www.figma.com/file/3SkFMId0IXsJMobMnReSO4/Engage?node-id=0%3A1)
 
-
+### Teamix is a fully functional clone of microsoft teams made using Agile development methodologies, as a part of the Microsoft Engage 2021 program.
 ## Features
-- [ ] Login/Signup
-- [ ] Create and join a Team
-- [ ] Make posts in a Team
-- [ ] Video call in a Team and chat during a video call
+	
+☢ Make an account and login to start using Teamix!
 
-<br>
+⚡ Make a team or join a team to collaborate with users remotely.
+	
+📺 video call any time with your team and chat with them.
+
+🌿 Make posts inside a team to communicate effectively
+
+🧬 interactive chatbot to help you through if you get stuck.
+
+⚛ Delete a team or post whenever you want.
+
+<br> </br>
+## 🌻 Motivation
+
+Having an excellent team space is key to being able to make creative decisions and communicate with one another. Shared workspace software makes this much easier to achieve, especially if a particular team is based in a very large company, has many remote employees, or is made up of a significant amount of team members.
+
+Keeping these in mind, introducing to you `Teamix`
+
+
+<br/>
+
+## Installation
+- To run development server, first *cd into the backend directory* then run -
+bash
+npm run dev
+
+- To run electron app, cd into the *frontend directory* then run -
+bash
+npm run electron
+
+- To lint code
+bash
+npm run lint
+
+<br/>
+
 
 ## Contributors
 
