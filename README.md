@@ -9,8 +9,9 @@
 
 ---
 
-[![DOCS](https://img.shields.io/badge/Documentation-see%20docs-green?style=flat-square&logo=appveyor)](INSERT_LINK_FOR_DOCS_HERE) 
+[![DOCS](https://img.shields.io/badge/Documentation-see%20docs-green?style=flat-square&logo=appveyor)](https://drive.google.com/file/d/1zZuZ7ZeKq34Mdsybi2KviExV_L_76CtE/view?usp=sharing) 
   [![UI ](https://img.shields.io/badge/User%20Interface-Link%20to%20UI-orange?style=flat-square&logo=appveyor)](https://www.figma.com/file/3SkFMId0IXsJMobMnReSO4/Engage?node-id=0%3A1)
+[![VIDEO ](https://img.shields.io/badge/Video-Link%20to%20Video-blue?style=flat-square&logo=appveyor)](https://drive.google.com/file/d/1RyYq6SSZkVtjWR0m3NgGykxNThPl4TbK/view?usp=sharing)
 
 ### Teamix is a fully functional clone of microsoft teams made using Agile development methodologies, as a part of the Microsoft Engage 2021 program.
 ## Features
