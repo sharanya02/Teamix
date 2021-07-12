@@ -35,6 +35,7 @@ Having an excellent team space is key to being able to make creative decisions a
 
 Keeping these in mind, introducing to you `Teamix`
 
+![GIF demo](media/demo.gif)
 
 <br/>
 
@@ -53,6 +54,11 @@ npm run lint
 ```
 <br/>
 
+## 🧬 Important Links
+ * [Video Demo](https://drive.google.com/file/d/1RyYq6SSZkVtjWR0m3NgGykxNThPl4TbK/view?usp=sharing)
+ * [Documentation](https://drive.google.com/file/d/1zZuZ7ZeKq34Mdsybi2KviExV_L_76CtE/view?usp=sharing)
+ * [UI](https://www.figma.com/file/3SkFMId0IXsJMobMnReSO4/Engage?node-id=0%3A1)
+ 
 
 ## Contributors
 
