@@ -7,7 +7,7 @@
     "dev": "nodemon",
     "start": "node server.js",
     "lint": "standard --fix",
-    "test": "tests"
+    "test": "standard && mocha tests/* --exit"
   },
   "author": "",
   "license": "ISC",

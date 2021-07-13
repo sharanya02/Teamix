@@ -1,7 +1,6 @@
 const logger = require('../logging/logger')
 const uuid4 = require('uuid4')
 const Team = require('../models/teams')
-const UserTeams = require('../models/userTeam')
 const Post = require('../models/posts')
 
 class PostController {
@@ -39,6 +38,7 @@ class PostController {
       }
     }
   }
+
   static async createMeet (userId, teamId) {
     try {
       const team = await Team.findOne({ where: { teamId } })
@@ -75,7 +75,6 @@ class PostController {
     }
   }
 
-
   static async deletePost (userId, postId) {
     try {
       const post = await Post.findOne({ where: { postId } })
@@ -102,9 +101,8 @@ class PostController {
         error: false,
         message: 'Post Successfully Deleted',
         code: 201
-    }
-  }
-     catch (err) {
+      }
+    } catch (err) {
       logger.error('An error occurred' + err)
       return {
         error: true,

@@ -1,4 +1,3 @@
-const { BOOLEAN } = require('sequelize')
 const sequelize = require('sequelize')
 const db = require('../database/connection')
 
@@ -16,7 +15,7 @@ const schema = {
     allowNull: true,
     defaultValue: 0
   },
-  isMeeting:{
+  isMeeting: {
     type: sequelize.BOOLEAN,
     defaultValue: false
   },
