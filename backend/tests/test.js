@@ -9,6 +9,6 @@ describe('# Test Suite', function () {
   it('# Test description', async function () {
     const res = await chai.request(app)
       .get('/')
-    assert.equal(res.body.user, 'none')
+    assert.equal(res.body.health, 'ok')
   })
 })
