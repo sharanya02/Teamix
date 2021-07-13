@@ -1,0 +1,34 @@
+name: Tests
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [12.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Fetch dependencies    
+        run: npm install
+
+      - name: Run tests
+        env: 
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          SALT_ROUNDS: '10'
+          SECRET_KEY: 'khrfnksmsfdserjeildkrtjnhdrms'
+          PORT: '3000'
+        run: npm test
