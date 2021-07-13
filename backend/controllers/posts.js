@@ -3,8 +3,9 @@ const uuid4 = require('uuid4')
 const Team = require('../models/teams')
 const Post = require('../models/posts')
 
+//creating controller for creating posts
 class PostController {
-  static async createPost (userId, teamId, postContent) {
+  static async createPost(userId, teamId, postContent) {
     try {
       const team = await Team.findOne({ where: { teamId } })
       if (!team) {
@@ -39,7 +40,8 @@ class PostController {
     }
   }
 
-  static async createMeet (userId, teamId) {
+  //creating controller for creating meeting
+  static async createMeet(userId, teamId) {
     try {
       const team = await Team.findOne({ where: { teamId } })
       if (!team) {
@@ -75,7 +77,7 @@ class PostController {
     }
   }
 
-  static async deletePost (userId, postId) {
+  static async deletePost(userId, postId) {
     try {
       const post = await Post.findOne({ where: { postId } })
       if (!post) {
@@ -112,7 +114,7 @@ class PostController {
     }
   }
 
-  static async likePost (postId, increment) {
+  static async likePost(postId, increment) {
     try {
       const filter = {
         where: {
@@ -146,7 +148,7 @@ class PostController {
     }
   }
 
-  static async fetchPost (postId) {
+  static async fetchPost(postId) {
     try {
       const query = {
         where: {

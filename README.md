@@ -25,6 +25,7 @@
 
 
 ## 🔗 Important Links
+ * [Released Packages](https://github.com/sharanya02/Teamix/releases/tag/v1.0.0)
  * [Video Demo](https://drive.google.com/file/d/1RyYq6SSZkVtjWR0m3NgGykxNThPl4TbK/view?usp=sharing)
  * [Documentation](https://docs.google.com/document/d/1ayBpxThUl-LSiEbMRk6PO29Vkzs6JzKYBtJACg6FwJU/edit?usp=sharing)
  * [UI](https://www.figma.com/file/3SkFMId0IXsJMobMnReSO4/Engage?node-id=0%3A1)
