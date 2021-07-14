@@ -14,7 +14,7 @@ function loadTeam () {
     redirect: 'follow'
   }
 
-  fetch('https://sharanyaengage.herokuapp.com/api/v1/team/details/fetch', requestOptions)
+  fetch('https://teamix.herokuapp.com/api/v1/team/details/fetch', requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result)

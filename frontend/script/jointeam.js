@@ -28,7 +28,7 @@ create.addEventListener('click', (e) => {
     redirect: 'follow'
   }
 
-  fetch('https://sharanyaengage.herokuapp.com/api/v1/team/create', requestOptions)
+  fetch('https://teamix.herokuapp.com/api/v1/team/create', requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result)
@@ -78,7 +78,7 @@ join.addEventListener('click', (e) => {
     redirect: 'follow'
   }
 
-  fetch('https://sharanyaengage.herokuapp.com/api/v1/team/user/join', requestOptions)
+  fetch('https://teamix.herokuapp.com/api/v1/team/user/join', requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result)

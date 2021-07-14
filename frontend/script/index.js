@@ -29,7 +29,7 @@ signup.addEventListener('click', (e) => {
     redirect: 'follow'
   }
 
-  fetch('https://sharanyaengage.herokuapp.com/api/v1/user/signup', requestOptions)
+  fetch('https://teamix.herokuapp.com/api/v1/user/signup', requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result)
@@ -61,7 +61,7 @@ login.addEventListener('click', (e) => {
     redirect: 'follow'
   }
 
-  fetch('https://sharanyaengage.herokuapp.com/api/v1/user/login', requestOptions)
+  fetch('https://teamix.herokuapp.com/api/v1/user/login', requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result)

@@ -8,7 +8,7 @@ function loadTeam () {
     headers: myHeaders,
     redirect: 'follow'
   }
-  fetch('https://sharanyaengage.herokuapp.com/api/v1/user/details/fetch', requestOptions)
+  fetch('https://teamix.herokuapp.com/api/v1/user/details/fetch', requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result)
@@ -75,7 +75,7 @@ function deleteteam (id) {
     redirect: 'follow'
   }
 
-  fetch('https://sharanyaengage.herokuapp.com/api/v1/team/delete', requestOptions)
+  fetch('https://teamix.herokuapp.com/api/v1/team/delete', requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result)
