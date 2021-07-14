@@ -10,7 +10,8 @@
     "dist": "electron-builder",
     "postinstall": "electron-builder install-app-deps",
     "package-linux": "electron-packager .  Teamix --overwrite --asar=true --platform=linux --arch=x64 --icon=icon.png --prune=true --out=release-builds",
-    "create-debian-installer": "electron-installer-debian --src release-builds/Teamix-linux-x64/ --arch amd64 --config config.json"
+    "create-debian-installer": "electron-installer-debian --src release-builds/Teamix-linux-x64/ --arch amd64 --config config.json",
+    "create-windows": "electron-packager . Teamix --overwrite --asar=true --platform=win32 --arch=ia32 --icon=icon.png --prune=true --out=release-builds"
   },
   "author": "Sharanya Mukherjee",
   "license": "ISC",
