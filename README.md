@@ -25,7 +25,7 @@
 
 
 ## 🔗 Important Links
- * [Released Packages](https://github.com/sharanya02/Teamix/releases/tag/v1.0.0)
+ * [Released Desktop App](https://github.com/sharanya02/Teamix/releases/tag/v1.0.0)
  * [Video Demo](https://drive.google.com/file/d/1RyYq6SSZkVtjWR0m3NgGykxNThPl4TbK/view?usp=sharing)
  * [Documentation](https://docs.google.com/document/d/1ayBpxThUl-LSiEbMRk6PO29Vkzs6JzKYBtJACg6FwJU/edit?usp=sharing)
  * [UI](https://www.figma.com/file/3SkFMId0IXsJMobMnReSO4/Engage?node-id=0%3A1)
@@ -41,6 +41,8 @@ Having an excellent team space is key to being able to make creative decisions a
 	Shared workspace software makes this much easier to achieve, especially if a particular team is based in a very large company, has many remote employees, or is made up of a significant number of team members. 
 	</br> </br>
 Keeping these in mind, introducing to you `Teamix`, a desktop application to effortlessly communicate and collaborate with your team remotely.
+
+![img](https://github.com/sharanya02/Teamix/blob/main/media/Teamix.png?raw=true)
 
 ## Features
 	
