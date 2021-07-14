@@ -1,5 +1,5 @@
 {
-  "name": "engage",
+  "name": "Teamix",
   "version": "1.0.0",
   "description": "a teams clone for microsoft engage mentorship program",
   "main": "index.js",
@@ -8,7 +8,9 @@
     "lint": "standard --fix",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "package-linux": "electron-packager .  Teamix --overwrite --asar=true --platform=linux --arch=x64 --icon=icon.png --prune=true --out=release-builds",
+    "create-debian-installer": "electron-installer-debian --src release-builds/Teamix-linux-x64/ --arch amd64 --config config.json"
   },
   "author": "Sharanya Mukherjee",
   "license": "ISC",
