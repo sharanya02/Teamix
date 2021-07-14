@@ -1,6 +1,6 @@
 <p align="center">
 <a href="https://microsoft.acehacker.com/engage2021/">
-	<img src="https://github.com/sharanya02/engage21/blob/main/media/miceng.png?raw=true" alt="Engage 21"/>
+	<img src="https://github.com/sharanya02/Teamix/blob/main/frontend/icon.png?raw=true" alt="Engage 21"/>
 </a>
 	<h2 align="center"> Teamix </h2>
 	<h3 align="center"> An effortless communication solution to collaborate with your team remotely!<h3>
@@ -48,7 +48,7 @@ Keeping these in mind, introducing to you `Teamix`, a desktop application to eff
 
 ⚡ Make a team or join a team to collaborate with users remotely.
 	
-📺 video call any time with your team and chat with them.
+📺 video call any time with your team and chat with them. Inside a video call, you can share your screen, raise your hand, chat, toggle tile view, change background,  start a live stream, share a youtube video, view speaker stats, and many more!
 
 🌿 Make posts inside a team to communicate effectively
 
