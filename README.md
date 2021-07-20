@@ -9,7 +9,7 @@
     <a href="https://docs.google.com/document/d/1ayBpxThUl-LSiEbMRk6PO29Vkzs6JzKYBtJACg6FwJU/edit?usp=sharing"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://img.shields.io/badge/Video-Link%20to%20Video-blue?style=flat-square&logo=appveyor">View Demo</a>
+    <a href="https://drive.google.com/file/d/1RyYq6SSZkVtjWR0m3NgGykxNThPl4TbK/view?usp=sharing">View Demo</a>
     ·
     <a href="https://github.com/sharanya02/Teamix/issues">Report Bug</a>
     ·
