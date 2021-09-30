@@ -16,7 +16,7 @@
   "author": "Sharanya Mukherjee",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.0.2",
+    "bootstrap": "^5.1.1",
     "electron": "^13.1.2",
     "socket.io": "^4.1.2"
   },
